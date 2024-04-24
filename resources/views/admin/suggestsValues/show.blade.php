@@ -57,6 +57,66 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.suggestsValue.fields.description') }}
+                        </th>
+                        <td>
+                            {{ $suggestsValue->description }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.suggestsValue.fields.picto') }}
+                        </th>
+                        <td>
+                            @if($suggestsValue->picto)
+                                <a href="{{ $suggestsValue->picto->getUrl() }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ $suggestsValue->picto->getUrl('thumb') }}">
+                                </a>
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.suggestsValue.fields.files') }}
+                        </th>
+                        <td>
+                            @foreach($suggestsValue->files as $key => $media)
+                                <a href="{{ $media->getUrl() }}" target="_blank">
+                                    {{ trans('global.view_file') }}
+                                </a>
+                            @endforeach
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.suggestsValue.fields.pictures') }}
+                        </th>
+                        <td>
+                            @foreach($suggestsValue->pictures as $key => $media)
+                                <a href="{{ $media->getUrl() }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ $media->getUrl('thumb') }}">
+                                </a>
+                            @endforeach
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.suggestsValue.fields.table_link') }}
+                        </th>
+                        <td>
+                            {{ $suggestsValue->table_link }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.suggestsValue.fields.table_link_value') }}
+                        </th>
+                        <td>
+                            {{ $suggestsValue->table_link_value }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.suggestsValue.fields.status') }}
                         </th>
                         <td>

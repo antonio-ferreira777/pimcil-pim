@@ -69,6 +69,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Suggests Values
     Route::delete('suggests-values/destroy', 'SuggestsValuesController@massDestroy')->name('suggests-values.massDestroy');
+    Route::post('suggests-values/media', 'SuggestsValuesController@storeMedia')->name('suggests-values.storeMedia');
+    Route::post('suggests-values/ckmedia', 'SuggestsValuesController@storeCKEditorImages')->name('suggests-values.storeCKEditorImages');
     Route::resource('suggests-values', 'SuggestsValuesController');
 
     // Entities

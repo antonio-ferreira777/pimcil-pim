@@ -18,6 +18,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     Route::apiResource('suggests', 'SuggestsApiController');
 
     // Suggests Values
+    Route::post('suggests-values/media', 'SuggestsValuesApiController@storeMedia')->name('suggests-values.storeMedia');
     Route::apiResource('suggests-values', 'SuggestsValuesApiController');
 
     // Entities
