@@ -29,6 +29,22 @@ class StoreSuggestsValueRequest extends FormRequest
                 'required',
                 'integer',
             ],
+            'files' => [
+                'array',
+            ],
+            'pictures' => [
+                'array',
+            ],
+            'table_link' => [
+                'string',
+                'nullable',
+            ],
+            'table_link_value' => [
+                'nullable',
+                'integer',
+                'min:-2147483648',
+                'max:2147483647',
+            ],
         ];
     }
 }

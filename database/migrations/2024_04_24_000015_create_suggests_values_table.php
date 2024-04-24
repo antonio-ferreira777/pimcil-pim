@@ -11,6 +11,9 @@ class CreateSuggestsValuesTable extends Migration
         Schema::create('suggests_values', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('value');
+            $table->longText('description')->nullable();
+            $table->string('table_link')->nullable();
+            $table->integer('table_link_value')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -37,6 +37,24 @@
                         {{ trans('cruds.suggestsValue.fields.country') }}
                     </th>
                     <th>
+                        {{ trans('cruds.suggestsValue.fields.description') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.suggestsValue.fields.picto') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.suggestsValue.fields.files') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.suggestsValue.fields.pictures') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.suggestsValue.fields.table_link') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.suggestsValue.fields.table_link_value') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.suggestsValue.fields.status') }}
                     </th>
                     <th>
@@ -100,6 +118,12 @@
 { data: 'value', name: 'value' },
 { data: 'language_name', name: 'language.name' },
 { data: 'country_name', name: 'country.name' },
+{ data: 'description', name: 'description' },
+{ data: 'picto', name: 'picto', sortable: false, searchable: false },
+{ data: 'files', name: 'files', sortable: false, searchable: false },
+{ data: 'pictures', name: 'pictures', sortable: false, searchable: false },
+{ data: 'table_link', name: 'table_link' },
+{ data: 'table_link_value', name: 'table_link_value' },
 { data: 'status_name', name: 'status.name' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
