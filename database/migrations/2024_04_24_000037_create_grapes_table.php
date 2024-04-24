@@ -12,6 +12,7 @@ class CreateGrapesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('synonyms')->nullable();
+            $table->string('color')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
             $table->softDeletes();

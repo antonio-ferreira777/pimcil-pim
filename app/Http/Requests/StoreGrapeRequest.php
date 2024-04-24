@@ -25,6 +25,10 @@ class StoreGrapeRequest extends FormRequest
                 'string',
                 'nullable',
             ],
+            'color' => [
+                'string',
+                'nullable',
+            ],
             'pictures' => [
                 'array',
             ],

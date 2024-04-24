@@ -13,18 +13,68 @@ use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
+use Yajra\DataTables\Facades\DataTables;
 
 class WinemakersController extends Controller
 {
     use MediaUploadingTrait;
 
-    public function index()
+    public function index(Request $request)
     {
         abort_if(Gate::denies('winemaker_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $winemakers = Winemaker::with(['status', 'media'])->get();
+        if ($request->ajax()) {
+            $query = Winemaker::with(['status'])->select(sprintf('%s.*', (new Winemaker)->table));
+            $table = Datatables::of($query);
 
-        return view('admin.winemakers.index', compact('winemakers'));
+            $table->addColumn('placeholder', '&nbsp;');
+            $table->addColumn('actions', '&nbsp;');
+
+            $table->editColumn('actions', function ($row) {
+                $viewGate      = 'winemaker_show';
+                $editGate      = 'winemaker_edit';
+                $deleteGate    = 'winemaker_delete';
+                $crudRoutePart = 'winemakers';
+
+                return view('partials.datatablesActions', compact(
+                    'viewGate',
+                    'editGate',
+                    'deleteGate',
+                    'crudRoutePart',
+                    'row'
+                ));
+            });
+
+            $table->editColumn('id', function ($row) {
+                return $row->id ? $row->id : '';
+            });
+            $table->editColumn('name', function ($row) {
+                return $row->name ? $row->name : '';
+            });
+            $table->editColumn('description', function ($row) {
+                return $row->description ? $row->description : '';
+            });
+            $table->editColumn('pictures', function ($row) {
+                if (! $row->pictures) {
+                    return '';
+                }
+                $links = [];
+                foreach ($row->pictures as $media) {
+                    $links[] = '<a href="' . $media->getUrl() . '" target="_blank"><img src="' . $media->getUrl('thumb') . '" width="50px" height="50px"></a>';
+                }
+
+                return implode(' ', $links);
+            });
+            $table->addColumn('status_name', function ($row) {
+                return $row->status ? $row->status->name : '';
+            });
+
+            $table->rawColumns(['actions', 'placeholder', 'pictures', 'status']);
+
+            return $table->make(true);
+        }
+
+        return view('admin.winemakers.index');
     }
 
     public function create()

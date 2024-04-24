@@ -117,10 +117,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('crm-documents/ckmedia', 'CrmDocumentController@storeCKEditorImages')->name('crm-documents.storeCKEditorImages');
     Route::resource('crm-documents', 'CrmDocumentController');
 
-    // Fyles Type
-    Route::delete('fyles-types/destroy', 'FylesTypeController@massDestroy')->name('fyles-types.massDestroy');
-    Route::resource('fyles-types', 'FylesTypeController');
-
     // Variations
     Route::delete('variations/destroy', 'VariationsController@massDestroy')->name('variations.massDestroy');
     Route::resource('variations', 'VariationsController');
