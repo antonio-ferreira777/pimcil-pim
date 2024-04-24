@@ -151,6 +151,26 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('entities-presses/destroy', 'EntitiesPressController@massDestroy')->name('entities-presses.massDestroy');
     Route::resource('entities-presses', 'EntitiesPressController');
 
+    // Regions
+    Route::delete('regions/destroy', 'RegionsController@massDestroy')->name('regions.massDestroy');
+    Route::resource('regions', 'RegionsController');
+
+    // Winemakers
+    Route::delete('winemakers/destroy', 'WinemakersController@massDestroy')->name('winemakers.massDestroy');
+    Route::post('winemakers/media', 'WinemakersController@storeMedia')->name('winemakers.storeMedia');
+    Route::post('winemakers/ckmedia', 'WinemakersController@storeCKEditorImages')->name('winemakers.storeCKEditorImages');
+    Route::resource('winemakers', 'WinemakersController');
+
+    // Files Type
+    Route::delete('files-types/destroy', 'FilesTypeController@massDestroy')->name('files-types.massDestroy');
+    Route::resource('files-types', 'FilesTypeController');
+
+    // Grapes
+    Route::delete('grapes/destroy', 'GrapesController@massDestroy')->name('grapes.massDestroy');
+    Route::post('grapes/media', 'GrapesController@storeMedia')->name('grapes.storeMedia');
+    Route::post('grapes/ckmedia', 'GrapesController@storeCKEditorImages')->name('grapes.storeCKEditorImages');
+    Route::resource('grapes', 'GrapesController');
+
     Route::get('global-search', 'GlobalSearchController@search')->name('globalSearch');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');

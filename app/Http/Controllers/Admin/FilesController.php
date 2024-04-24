@@ -8,7 +8,7 @@ use App\Http\Requests\MassDestroyFileRequest;
 use App\Http\Requests\StoreFileRequest;
 use App\Http\Requests\UpdateFileRequest;
 use App\Models\File;
-use App\Models\FylesType;
+use App\Models\FilesType;
 use App\Models\Status;
 use Gate;
 use Illuminate\Http\Request;
@@ -100,7 +100,7 @@ class FilesController extends Controller
     {
         abort_if(Gate::denies('file_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $types = FylesType::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $types = FilesType::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $statuses = Status::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -130,7 +130,7 @@ class FilesController extends Controller
     {
         abort_if(Gate::denies('file_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $types = FylesType::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $types = FilesType::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $statuses = Status::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 

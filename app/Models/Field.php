@@ -28,6 +28,9 @@ class Field extends Model
         'select'       => 'Select',
         'select_multi' => 'Select Multi',
         'file'         => 'File',
+        'int'          => 'Integer',
+        'float'        => 'Float',
+        'tree'         => 'Tree',
     ];
 
     protected $fillable = [

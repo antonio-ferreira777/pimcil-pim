@@ -672,6 +672,86 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 166,
+                'title' => 'region_create',
+            ],
+            [
+                'id'    => 167,
+                'title' => 'region_edit',
+            ],
+            [
+                'id'    => 168,
+                'title' => 'region_show',
+            ],
+            [
+                'id'    => 169,
+                'title' => 'region_delete',
+            ],
+            [
+                'id'    => 170,
+                'title' => 'region_access',
+            ],
+            [
+                'id'    => 171,
+                'title' => 'winemaker_create',
+            ],
+            [
+                'id'    => 172,
+                'title' => 'winemaker_edit',
+            ],
+            [
+                'id'    => 173,
+                'title' => 'winemaker_show',
+            ],
+            [
+                'id'    => 174,
+                'title' => 'winemaker_delete',
+            ],
+            [
+                'id'    => 175,
+                'title' => 'winemaker_access',
+            ],
+            [
+                'id'    => 176,
+                'title' => 'files_type_create',
+            ],
+            [
+                'id'    => 177,
+                'title' => 'files_type_edit',
+            ],
+            [
+                'id'    => 178,
+                'title' => 'files_type_show',
+            ],
+            [
+                'id'    => 179,
+                'title' => 'files_type_delete',
+            ],
+            [
+                'id'    => 180,
+                'title' => 'files_type_access',
+            ],
+            [
+                'id'    => 181,
+                'title' => 'grape_create',
+            ],
+            [
+                'id'    => 182,
+                'title' => 'grape_edit',
+            ],
+            [
+                'id'    => 183,
+                'title' => 'grape_show',
+            ],
+            [
+                'id'    => 184,
+                'title' => 'grape_delete',
+            ],
+            [
+                'id'    => 185,
+                'title' => 'grape_access',
+            ],
+            [
+                'id'    => 186,
                 'title' => 'profile_password_edit',
             ],
         ];

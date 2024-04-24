@@ -4,15 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserAlertsTable extends Migration
+class CreateWinemakersTable extends Migration
 {
     public function up()
     {
-        Schema::create('user_alerts', function (Blueprint $table) {
+        Schema::create('winemakers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('alert_text')->nullable();
-            $table->string('alert_link')->nullable();
+            $table->string('name');
+            $table->longText('description')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 }
