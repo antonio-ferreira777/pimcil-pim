@@ -257,7 +257,7 @@
             </li>
         @endcan
         @can('admin_setting_access')
-            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/languages*") ? "c-show" : "" }} {{ request()->is("admin/channels*") ? "c-show" : "" }} {{ request()->is("admin/form-blocs*") ? "c-show" : "" }} {{ request()->is("admin/fields*") ? "c-show" : "" }} {{ request()->is("admin/suggests*") ? "c-show" : "" }} {{ request()->is("admin/suggests-values*") ? "c-show" : "" }} {{ request()->is("admin/statuses*") ? "c-show" : "" }} {{ request()->is("admin/entities-types*") ? "c-show" : "" }} {{ request()->is("admin/entities-fields*") ? "c-show" : "" }} {{ request()->is("admin/entities-files*") ? "c-show" : "" }} {{ request()->is("admin/fyles-types*") ? "c-show" : "" }} {{ request()->is("admin/variations*") ? "c-show" : "" }} {{ request()->is("admin/entities-versionings*") ? "c-show" : "" }} {{ request()->is("admin/localizations*") ? "c-show" : "" }} {{ request()->is("admin/entities-rewards*") ? "c-show" : "" }} {{ request()->is("admin/entities-presses*") ? "c-show" : "" }} {{ request()->is("admin/files-types*") ? "c-show" : "" }}">
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/languages*") ? "c-show" : "" }} {{ request()->is("admin/channels*") ? "c-show" : "" }} {{ request()->is("admin/form-blocs*") ? "c-show" : "" }} {{ request()->is("admin/fields*") ? "c-show" : "" }} {{ request()->is("admin/suggests*") ? "c-show" : "" }} {{ request()->is("admin/suggests-values*") ? "c-show" : "" }} {{ request()->is("admin/statuses*") ? "c-show" : "" }} {{ request()->is("admin/entities-types*") ? "c-show" : "" }} {{ request()->is("admin/entities-fields*") ? "c-show" : "" }} {{ request()->is("admin/entities-files*") ? "c-show" : "" }} {{ request()->is("admin/variations*") ? "c-show" : "" }} {{ request()->is("admin/entities-versionings*") ? "c-show" : "" }} {{ request()->is("admin/localizations*") ? "c-show" : "" }} {{ request()->is("admin/entities-rewards*") ? "c-show" : "" }} {{ request()->is("admin/entities-presses*") ? "c-show" : "" }} {{ request()->is("admin/files-types*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
@@ -362,16 +362,6 @@
 
                                 </i>
                                 {{ trans('cruds.entitiesFile.title') }}
-                            </a>
-                        </li>
-                    @endcan
-                    @can('fyles_type_access')
-                        <li class="c-sidebar-nav-item">
-                            <a href="{{ route("admin.fyles-types.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/fyles-types") || request()->is("admin/fyles-types/*") ? "c-active" : "" }}">
-                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
-
-                                </i>
-                                {{ trans('cruds.fylesType.title') }}
                             </a>
                         </li>
                     @endcan

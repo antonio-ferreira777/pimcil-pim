@@ -30,6 +30,16 @@
                 <span class="help-block">{{ trans('cruds.grape.fields.synonyms_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="color">{{ trans('cruds.grape.fields.color') }}</label>
+                <input class="form-control {{ $errors->has('color') ? 'is-invalid' : '' }}" type="text" name="color" id="color" value="{{ old('color', '') }}">
+                @if($errors->has('color'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('color') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.grape.fields.color_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label for="description">{{ trans('cruds.grape.fields.description') }}</label>
                 <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description">{{ old('description') }}</textarea>
                 @if($errors->has('description'))

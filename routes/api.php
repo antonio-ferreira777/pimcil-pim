@@ -48,9 +48,6 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     Route::post('crm-documents/media', 'CrmDocumentApiController@storeMedia')->name('crm-documents.storeMedia');
     Route::apiResource('crm-documents', 'CrmDocumentApiController');
 
-    // Fyles Type
-    Route::apiResource('fyles-types', 'FylesTypeApiController');
-
     // Variations
     Route::apiResource('variations', 'VariationsApiController');
 
@@ -69,6 +66,17 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Entities Press
     Route::apiResource('entities-presses', 'EntitiesPressApiController');
 
+    // Regions
+    Route::apiResource('regions', 'RegionsApiController');
+
+    // Winemakers
+    Route::post('winemakers/media', 'WinemakersApiController@storeMedia')->name('winemakers.storeMedia');
+    Route::apiResource('winemakers', 'WinemakersApiController');
+
     // Files Type
     Route::apiResource('files-types', 'FilesTypeApiController');
+
+    // Grapes
+    Route::post('grapes/media', 'GrapesApiController@storeMedia')->name('grapes.storeMedia');
+    Route::apiResource('grapes', 'GrapesApiController');
 });

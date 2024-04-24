@@ -11,16 +11,62 @@ use App\Models\Region;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Yajra\DataTables\Facades\DataTables;
 
 class RegionsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         abort_if(Gate::denies('region_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $regions = Region::with(['country'])->get();
+        if ($request->ajax()) {
+            $query = Region::with(['country'])->select(sprintf('%s.*', (new Region)->table));
+            $table = Datatables::of($query);
 
-        return view('admin.regions.index', compact('regions'));
+            $table->addColumn('placeholder', '&nbsp;');
+            $table->addColumn('actions', '&nbsp;');
+
+            $table->editColumn('actions', function ($row) {
+                $viewGate      = 'region_show';
+                $editGate      = 'region_edit';
+                $deleteGate    = 'region_delete';
+                $crudRoutePart = 'regions';
+
+                return view('partials.datatablesActions', compact(
+                    'viewGate',
+                    'editGate',
+                    'deleteGate',
+                    'crudRoutePart',
+                    'row'
+                ));
+            });
+
+            $table->editColumn('id', function ($row) {
+                return $row->id ? $row->id : '';
+            });
+            $table->editColumn('id_parent', function ($row) {
+                return $row->id_parent ? $row->id_parent : '';
+            });
+            $table->editColumn('name', function ($row) {
+                return $row->name ? $row->name : '';
+            });
+            $table->addColumn('country_name', function ($row) {
+                return $row->country ? $row->country->name : '';
+            });
+
+            $table->editColumn('wine_commissions', function ($row) {
+                return $row->wine_commissions ? $row->wine_commissions : '';
+            });
+            $table->editColumn('description', function ($row) {
+                return $row->description ? $row->description : '';
+            });
+
+            $table->rawColumns(['actions', 'placeholder', 'country']);
+
+            return $table->make(true);
+        }
+
+        return view('admin.regions.index');
     }
 
     public function create()

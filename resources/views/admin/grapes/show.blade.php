@@ -41,6 +41,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.grape.fields.color') }}
+                        </th>
+                        <td>
+                            {{ $grape->color }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.grape.fields.description') }}
                         </th>
                         <td>

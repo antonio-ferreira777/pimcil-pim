@@ -15,86 +15,33 @@
     </div>
 
     <div class="card-body">
-        <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Winemaker">
-                <thead>
-                    <tr>
-                        <th width="10">
+        <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-Winemaker">
+            <thead>
+                <tr>
+                    <th width="10">
 
-                        </th>
-                        <th>
-                            {{ trans('cruds.winemaker.fields.id') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.winemaker.fields.name') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.winemaker.fields.description') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.winemaker.fields.pictures') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.winemaker.fields.status') }}
-                        </th>
-                        <th>
-                            &nbsp;
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($winemakers as $key => $winemaker)
-                        <tr data-entry-id="{{ $winemaker->id }}">
-                            <td>
-
-                            </td>
-                            <td>
-                                {{ $winemaker->id ?? '' }}
-                            </td>
-                            <td>
-                                {{ $winemaker->name ?? '' }}
-                            </td>
-                            <td>
-                                {{ $winemaker->description ?? '' }}
-                            </td>
-                            <td>
-                                @foreach($winemaker->pictures as $key => $media)
-                                    <a href="{{ $media->getUrl() }}" target="_blank" style="display: inline-block">
-                                        <img src="{{ $media->getUrl('thumb') }}">
-                                    </a>
-                                @endforeach
-                            </td>
-                            <td>
-                                {{ $winemaker->status->name ?? '' }}
-                            </td>
-                            <td>
-                                @can('winemaker_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.winemakers.show', $winemaker->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
-
-                                @can('winemaker_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.winemakers.edit', $winemaker->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                @endcan
-
-                                @can('winemaker_delete')
-                                    <form action="{{ route('admin.winemakers.destroy', $winemaker->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                    </form>
-                                @endcan
-
-                            </td>
-
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+                    </th>
+                    <th>
+                        {{ trans('cruds.winemaker.fields.id') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.winemaker.fields.name') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.winemaker.fields.description') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.winemaker.fields.pictures') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.winemaker.fields.status') }}
+                    </th>
+                    <th>
+                        &nbsp;
+                    </th>
+                </tr>
+            </thead>
+        </table>
     </div>
 </div>
 
@@ -107,14 +54,14 @@
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
 @can('winemaker_delete')
-  let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
+  let deleteButtonTrans = '{{ trans('global.datatables.delete') }}';
   let deleteButton = {
     text: deleteButtonTrans,
     url: "{{ route('admin.winemakers.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
-      var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
-          return $(entry).data('entry-id')
+      var ids = $.map(dt.rows({ selected: true }).data(), function (entry) {
+          return entry.id
       });
 
       if (ids.length === 0) {
@@ -136,18 +83,33 @@
   dtButtons.push(deleteButton)
 @endcan
 
-  $.extend(true, $.fn.dataTable.defaults, {
+  let dtOverrideGlobals = {
+    buttons: dtButtons,
+    processing: true,
+    serverSide: true,
+    retrieve: true,
+    aaSorting: [],
+    ajax: "{{ route('admin.winemakers.index') }}",
+    columns: [
+      { data: 'placeholder', name: 'placeholder' },
+{ data: 'id', name: 'id' },
+{ data: 'name', name: 'name' },
+{ data: 'description', name: 'description' },
+{ data: 'pictures', name: 'pictures', sortable: false, searchable: false },
+{ data: 'status_name', name: 'status.name' },
+{ data: 'actions', name: '{{ trans('global.actions') }}' }
+    ],
     orderCellsTop: true,
     order: [[ 1, 'desc' ]],
     pageLength: 100,
-  });
-  let table = $('.datatable-Winemaker:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  };
+  let table = $('.datatable-Winemaker').DataTable(dtOverrideGlobals);
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
   
-})
+});
 
 </script>
 @endsection
