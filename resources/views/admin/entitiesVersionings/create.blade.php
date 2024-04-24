@@ -17,9 +17,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('entity'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('entity') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('entity') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesVersioning.fields.entity_helper') }}</span>
             </div>
@@ -27,9 +25,7 @@
                 <label class="required" for="values">{{ trans('cruds.entitiesVersioning.fields.values') }}</label>
                 <textarea class="form-control {{ $errors->has('values') ? 'is-invalid' : '' }}" name="values" id="values" required>{{ old('values') }}</textarea>
                 @if($errors->has('values'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('values') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('values') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesVersioning.fields.values_helper') }}</span>
             </div>

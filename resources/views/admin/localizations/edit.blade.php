@@ -14,9 +14,7 @@
                 <label class="required" for="data_table">{{ trans('cruds.localization.fields.data_table') }}</label>
                 <input class="form-control {{ $errors->has('data_table') ? 'is-invalid' : '' }}" type="text" name="data_table" id="data_table" value="{{ old('data_table', $localization->data_table) }}" required>
                 @if($errors->has('data_table'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('data_table') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('data_table') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.localization.fields.data_table_helper') }}</span>
             </div>
@@ -24,9 +22,7 @@
                 <label class="required" for="data">{{ trans('cruds.localization.fields.data') }}</label>
                 <input class="form-control {{ $errors->has('data') ? 'is-invalid' : '' }}" type="text" name="data" id="data" value="{{ old('data', $localization->data) }}" required>
                 @if($errors->has('data'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('data') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('data') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.localization.fields.data_helper') }}</span>
             </div>
@@ -34,9 +30,7 @@
                 <label class="required" for="data_value">{{ trans('cruds.localization.fields.data_value') }}</label>
                 <input class="form-control {{ $errors->has('data_value') ? 'is-invalid' : '' }}" type="text" name="data_value" id="data_value" value="{{ old('data_value', $localization->data_value) }}" required>
                 @if($errors->has('data_value'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('data_value') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('data_value') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.localization.fields.data_value_helper') }}</span>
             </div>
@@ -48,9 +42,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('language'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('language') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('language') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.localization.fields.language_helper') }}</span>
             </div>

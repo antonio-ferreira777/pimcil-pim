@@ -17,9 +17,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('entity'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('entity') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('entity') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesFile.fields.entity_helper') }}</span>
             </div>
@@ -31,9 +29,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('file'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('file') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('file') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesFile.fields.file_helper') }}</span>
             </div>
@@ -41,9 +37,7 @@
                 <label for="display_order">{{ trans('cruds.entitiesFile.fields.display_order') }}</label>
                 <input class="form-control {{ $errors->has('display_order') ? 'is-invalid' : '' }}" type="number" name="display_order" id="display_order" value="{{ old('display_order', '1') }}" step="1">
                 @if($errors->has('display_order'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('display_order') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('display_order') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesFile.fields.display_order_helper') }}</span>
             </div>
@@ -53,9 +47,7 @@
                     <label class="required form-check-label" for="is_default">{{ trans('cruds.entitiesFile.fields.is_default') }}</label>
                 </div>
                 @if($errors->has('is_default'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('is_default') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('is_default') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesFile.fields.is_default_helper') }}</span>
             </div>
@@ -65,9 +57,7 @@
                     <label class="required form-check-label" for="to_use">{{ trans('cruds.entitiesFile.fields.to_use') }}</label>
                 </div>
                 @if($errors->has('to_use'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('to_use') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('to_use') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesFile.fields.to_use_helper') }}</span>
             </div>
@@ -79,9 +69,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('status'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('status') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('status') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesFile.fields.status_helper') }}</span>
             </div>

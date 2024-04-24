@@ -14,9 +14,7 @@
                 <label class="required" for="name">{{ trans('cruds.winemaker.fields.name') }}</label>
                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', $winemaker->name) }}" required>
                 @if($errors->has('name'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('name') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('name') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.winemaker.fields.name_helper') }}</span>
             </div>
@@ -24,9 +22,7 @@
                 <label for="description">{{ trans('cruds.winemaker.fields.description') }}</label>
                 <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description">{{ old('description', $winemaker->description) }}</textarea>
                 @if($errors->has('description'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('description') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('description') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.winemaker.fields.description_helper') }}</span>
             </div>
@@ -35,9 +31,7 @@
                 <div class="needsclick dropzone {{ $errors->has('pictures') ? 'is-invalid' : '' }}" id="pictures-dropzone">
                 </div>
                 @if($errors->has('pictures'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('pictures') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('pictures') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.winemaker.fields.pictures_helper') }}</span>
             </div>
@@ -49,9 +43,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('status'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('status') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('status') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.winemaker.fields.status_helper') }}</span>
             </div>

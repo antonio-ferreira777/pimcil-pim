@@ -17,9 +17,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('entity'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('entity') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('entity') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesReward.fields.entity_helper') }}</span>
             </div>
@@ -31,9 +29,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('reward'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('reward') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('reward') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesReward.fields.reward_helper') }}</span>
             </div>
@@ -41,9 +37,7 @@
                 <label class="required" for="year">{{ trans('cruds.entitiesReward.fields.year') }}</label>
                 <input class="form-control {{ $errors->has('year') ? 'is-invalid' : '' }}" type="number" name="year" id="year" value="{{ old('year', '') }}" step="1" required>
                 @if($errors->has('year'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('year') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('year') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesReward.fields.year_helper') }}</span>
             </div>
@@ -51,9 +45,7 @@
                 <label for="date">{{ trans('cruds.entitiesReward.fields.date') }}</label>
                 <input class="form-control date {{ $errors->has('date') ? 'is-invalid' : '' }}" type="text" name="date" id="date" value="{{ old('date') }}">
                 @if($errors->has('date'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('date') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('date') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesReward.fields.date_helper') }}</span>
             </div>
@@ -61,9 +53,7 @@
                 <label for="points">{{ trans('cruds.entitiesReward.fields.points') }}</label>
                 <input class="form-control {{ $errors->has('points') ? 'is-invalid' : '' }}" type="number" name="points" id="points" value="{{ old('points', '') }}" step="0.01">
                 @if($errors->has('points'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('points') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('points') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesReward.fields.points_helper') }}</span>
             </div>
@@ -71,9 +61,7 @@
                 <label for="comment">{{ trans('cruds.entitiesReward.fields.comment') }}</label>
                 <textarea class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }}" name="comment" id="comment">{{ old('comment') }}</textarea>
                 @if($errors->has('comment'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('comment') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('comment') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesReward.fields.comment_helper') }}</span>
             </div>
