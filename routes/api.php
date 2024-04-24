@@ -59,4 +59,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Countries
     Route::apiResource('countries', 'CountriesApiController');
+
+    // Localization
+    Route::apiResource('localizations', 'LocalizationApiController');
 });
