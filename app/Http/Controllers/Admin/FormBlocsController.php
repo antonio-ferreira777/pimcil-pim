@@ -47,6 +47,9 @@ class FormBlocsController extends Controller
             $table->editColumn('name', function ($row) {
                 return $row->name ? $row->name : '';
             });
+            $table->editColumn('display_order', function ($row) {
+                return $row->display_order ? $row->display_order : '';
+            });
             $table->addColumn('status_name', function ($row) {
                 return $row->status ? $row->status->name : '';
             });

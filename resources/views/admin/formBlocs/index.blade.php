@@ -28,6 +28,9 @@
                         {{ trans('cruds.formBloc.fields.name') }}
                     </th>
                     <th>
+                        {{ trans('cruds.formBloc.fields.display_order') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.formBloc.fields.status') }}
                     </th>
                     <th>
@@ -88,6 +91,7 @@
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
 { data: 'name', name: 'name' },
+{ data: 'display_order', name: 'display_order' },
 { data: 'status_name', name: 'status.name' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],

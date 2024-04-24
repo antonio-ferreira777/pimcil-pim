@@ -107,6 +107,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.field.fields.display_order') }}
+                        </th>
+                        <td>
+                            {{ $field->display_order }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.field.fields.status') }}
                         </th>
                         <td>

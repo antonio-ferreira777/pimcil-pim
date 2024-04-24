@@ -40,6 +40,7 @@ class Field extends Model
         'channel_id',
         'channels_transversality',
         'language_transversality',
+        'display_order',
         'status_id',
         'created_at',
         'updated_at',

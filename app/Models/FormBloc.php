@@ -22,6 +22,7 @@ class FormBloc extends Model
 
     protected $fillable = [
         'name',
+        'display_order',
         'status_id',
         'created_at',
         'updated_at',

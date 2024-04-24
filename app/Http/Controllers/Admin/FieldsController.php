@@ -84,6 +84,9 @@ class FieldsController extends Controller
             $table->editColumn('language_transversality', function ($row) {
                 return '<input type="checkbox" disabled ' . ($row->language_transversality ? 'checked' : null) . '>';
             });
+            $table->editColumn('display_order', function ($row) {
+                return $row->display_order ? $row->display_order : '';
+            });
             $table->addColumn('status_name', function ($row) {
                 return $row->status ? $row->status->name : '';
             });

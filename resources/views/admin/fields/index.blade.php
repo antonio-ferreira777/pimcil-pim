@@ -55,6 +55,9 @@
                         {{ trans('cruds.field.fields.language_transversality') }}
                     </th>
                     <th>
+                        {{ trans('cruds.field.fields.display_order') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.field.fields.status') }}
                     </th>
                     <th>
@@ -124,6 +127,7 @@
 { data: 'channel_name', name: 'channel.name' },
 { data: 'channels_transversality', name: 'channels_transversality' },
 { data: 'language_transversality', name: 'language_transversality' },
+{ data: 'display_order', name: 'display_order' },
 { data: 'status_name', name: 'status.name' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
