@@ -829,6 +829,8 @@ return [
             'deleted_at_helper'  => ' ',
             'color'              => 'Color',
             'color_helper'       => ' ',
+            'country'            => 'Country',
+            'country_helper'     => ' ',
         ],
     ],
 

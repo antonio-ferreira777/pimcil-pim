@@ -41,6 +41,20 @@
                 <span class="help-block">{{ trans('cruds.grape.fields.color_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="country_id">{{ trans('cruds.grape.fields.country') }}</label>
+                <select class="form-control select2 {{ $errors->has('country') ? 'is-invalid' : '' }}" name="country_id" id="country_id" required>
+                    @foreach($countries as $id => $entry)
+                        <option value="{{ $id }}" {{ (old('country_id') ? old('country_id') : $grape->country->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('country'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('country') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.grape.fields.country_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label for="description">{{ trans('cruds.grape.fields.description') }}</label>
                 <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description">{{ old('description', $grape->description) }}</textarea>
                 @if($errors->has('description'))

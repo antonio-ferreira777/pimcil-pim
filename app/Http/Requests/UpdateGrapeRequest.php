@@ -29,6 +29,10 @@ class UpdateGrapeRequest extends FormRequest
                 'string',
                 'nullable',
             ],
+            'country_id' => [
+                'required',
+                'integer',
+            ],
             'pictures' => [
                 'array',
             ],

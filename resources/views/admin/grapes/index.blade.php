@@ -34,6 +34,9 @@
                         {{ trans('cruds.grape.fields.color') }}
                     </th>
                     <th>
+                        {{ trans('cruds.grape.fields.country') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.grape.fields.description') }}
                     </th>
                     <th>
@@ -102,6 +105,7 @@
 { data: 'name', name: 'name' },
 { data: 'synonyms', name: 'synonyms' },
 { data: 'color', name: 'color' },
+{ data: 'country_name', name: 'country.name' },
 { data: 'description', name: 'description' },
 { data: 'pictures', name: 'pictures', sortable: false, searchable: false },
 { data: 'status_name', name: 'status.name' },

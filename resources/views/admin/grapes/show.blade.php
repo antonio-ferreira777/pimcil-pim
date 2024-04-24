@@ -49,6 +49,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.grape.fields.country') }}
+                        </th>
+                        <td>
+                            {{ $grape->country->name ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.grape.fields.description') }}
                         </th>
                         <td>

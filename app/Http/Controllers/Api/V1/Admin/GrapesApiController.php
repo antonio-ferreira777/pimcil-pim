@@ -20,7 +20,7 @@ class GrapesApiController extends Controller
     {
         abort_if(Gate::denies('grape_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new GrapeResource(Grape::with(['status'])->get());
+        return new GrapeResource(Grape::with(['country', 'status'])->get());
     }
 
     public function store(StoreGrapeRequest $request)
@@ -40,7 +40,7 @@ class GrapesApiController extends Controller
     {
         abort_if(Gate::denies('grape_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new GrapeResource($grape->load(['status']));
+        return new GrapeResource($grape->load(['country', 'status']));
     }
 
     public function update(UpdateGrapeRequest $request, Grape $grape)

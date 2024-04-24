@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyGrapeRequest;
 use App\Http\Requests\StoreGrapeRequest;
 use App\Http\Requests\UpdateGrapeRequest;
+use App\Models\Country;
 use App\Models\Grape;
 use App\Models\Status;
 use Gate;
@@ -24,7 +25,7 @@ class GrapesController extends Controller
         abort_if(Gate::denies('grape_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Grape::with(['status'])->select(sprintf('%s.*', (new Grape)->table));
+            $query = Grape::with(['country', 'status'])->select(sprintf('%s.*', (new Grape)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -57,6 +58,10 @@ class GrapesController extends Controller
             $table->editColumn('color', function ($row) {
                 return $row->color ? $row->color : '';
             });
+            $table->addColumn('country_name', function ($row) {
+                return $row->country ? $row->country->name : '';
+            });
+
             $table->editColumn('description', function ($row) {
                 return $row->description ? $row->description : '';
             });
@@ -75,7 +80,7 @@ class GrapesController extends Controller
                 return $row->status ? $row->status->name : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder', 'pictures', 'status']);
+            $table->rawColumns(['actions', 'placeholder', 'country', 'pictures', 'status']);
 
             return $table->make(true);
         }
@@ -87,9 +92,11 @@ class GrapesController extends Controller
     {
         abort_if(Gate::denies('grape_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $countries = Country::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
         $statuses = Status::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.grapes.create', compact('statuses'));
+        return view('admin.grapes.create', compact('countries', 'statuses'));
     }
 
     public function store(StoreGrapeRequest $request)
@@ -111,11 +118,13 @@ class GrapesController extends Controller
     {
         abort_if(Gate::denies('grape_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $countries = Country::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
         $statuses = Status::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $grape->load('status');
+        $grape->load('country', 'status');
 
-        return view('admin.grapes.edit', compact('grape', 'statuses'));
+        return view('admin.grapes.edit', compact('countries', 'grape', 'statuses'));
     }
 
     public function update(UpdateGrapeRequest $request, Grape $grape)
@@ -143,7 +152,7 @@ class GrapesController extends Controller
     {
         abort_if(Gate::denies('grape_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $grape->load('status');
+        $grape->load('country', 'status');
 
         return view('admin.grapes.show', compact('grape'));
     }
