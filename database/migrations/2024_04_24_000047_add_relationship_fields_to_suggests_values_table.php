@@ -15,6 +15,8 @@ class AddRelationshipFieldsToSuggestsValuesTable extends Migration
             $table->foreign('language_id', 'language_fk_9719727')->references('id')->on('languages');
             $table->unsignedBigInteger('country_id')->nullable();
             $table->foreign('country_id', 'country_fk_9720549')->references('id')->on('countries');
+            $table->unsignedBigInteger('status_id')->nullable();
+            $table->foreign('status_id', 'status_fk_9720985')->references('id')->on('statuses');
         });
     }
 }

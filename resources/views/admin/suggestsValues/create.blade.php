@@ -62,8 +62,12 @@
                 <span class="help-block">{{ trans('cruds.suggestsValue.fields.country_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="status">{{ trans('cruds.suggestsValue.fields.status') }}</label>
-                <input class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}" type="number" name="status" id="status" value="{{ old('status', '1') }}" step="1" required>
+                <label for="status_id">{{ trans('cruds.suggestsValue.fields.status') }}</label>
+                <select class="form-control select2 {{ $errors->has('status') ? 'is-invalid' : '' }}" name="status_id" id="status_id">
+                    @foreach($statuses as $id => $entry)
+                        <option value="{{ $id }}" {{ old('status_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @endforeach
+                </select>
                 @if($errors->has('status'))
                     <div class="invalid-feedback">
                         {{ $errors->first('status') }}

@@ -4,13 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSuggestsValuesTable extends Migration
+class CreateRewardsTable extends Migration
 {
     public function up()
     {
-        Schema::create('suggests_values', function (Blueprint $table) {
+        Schema::create('rewards', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('value');
+            $table->string('name');
+            $table->string('link')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

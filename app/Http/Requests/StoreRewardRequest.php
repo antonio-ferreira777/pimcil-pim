@@ -2,30 +2,33 @@
 
 namespace App\Http\Requests;
 
-use App\Models\SuggestsValue;
+use App\Models\Reward;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
 
-class StoreSuggestsValueRequest extends FormRequest
+class StoreRewardRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('suggests_value_create');
+        return Gate::allows('reward_create');
     }
 
     public function rules()
     {
         return [
-            'suggest_id' => [
-                'required',
-                'integer',
-            ],
-            'value' => [
+            'name' => [
                 'string',
                 'required',
             ],
-            'language_id' => [
+            'doc' => [
+                'array',
+            ],
+            'link' => [
+                'string',
+                'nullable',
+            ],
+            'status_id' => [
                 'required',
                 'integer',
             ],

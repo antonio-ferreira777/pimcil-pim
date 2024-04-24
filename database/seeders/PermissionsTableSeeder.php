@@ -612,6 +612,66 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 151,
+                'title' => 'reward_create',
+            ],
+            [
+                'id'    => 152,
+                'title' => 'reward_edit',
+            ],
+            [
+                'id'    => 153,
+                'title' => 'reward_show',
+            ],
+            [
+                'id'    => 154,
+                'title' => 'reward_delete',
+            ],
+            [
+                'id'    => 155,
+                'title' => 'reward_access',
+            ],
+            [
+                'id'    => 156,
+                'title' => 'entities_reward_create',
+            ],
+            [
+                'id'    => 157,
+                'title' => 'entities_reward_edit',
+            ],
+            [
+                'id'    => 158,
+                'title' => 'entities_reward_show',
+            ],
+            [
+                'id'    => 159,
+                'title' => 'entities_reward_delete',
+            ],
+            [
+                'id'    => 160,
+                'title' => 'entities_reward_access',
+            ],
+            [
+                'id'    => 161,
+                'title' => 'entities_press_create',
+            ],
+            [
+                'id'    => 162,
+                'title' => 'entities_press_edit',
+            ],
+            [
+                'id'    => 163,
+                'title' => 'entities_press_show',
+            ],
+            [
+                'id'    => 164,
+                'title' => 'entities_press_delete',
+            ],
+            [
+                'id'    => 165,
+                'title' => 'entities_press_access',
+            ],
+            [
+                'id'    => 166,
                 'title' => 'profile_password_edit',
             ],
         ];

@@ -3,13 +3,13 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.suggestsValue.title') }}
+        {{ trans('global.show') }} {{ trans('cruds.reward.title') }}
     </div>
 
     <div class="card-body">
         <div class="form-group">
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.suggests-values.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.rewards.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
@@ -17,56 +17,64 @@
                 <tbody>
                     <tr>
                         <th>
-                            {{ trans('cruds.suggestsValue.fields.id') }}
+                            {{ trans('cruds.reward.fields.id') }}
                         </th>
                         <td>
-                            {{ $suggestsValue->id }}
+                            {{ $reward->id }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.suggestsValue.fields.suggest') }}
+                            {{ trans('cruds.reward.fields.name') }}
                         </th>
                         <td>
-                            {{ $suggestsValue->suggest->name ?? '' }}
+                            {{ $reward->name }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.suggestsValue.fields.value') }}
+                            {{ trans('cruds.reward.fields.picto') }}
                         </th>
                         <td>
-                            {{ $suggestsValue->value }}
+                            @if($reward->picto)
+                                <a href="{{ $reward->picto->getUrl() }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ $reward->picto->getUrl('thumb') }}">
+                                </a>
+                            @endif
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.suggestsValue.fields.language') }}
+                            {{ trans('cruds.reward.fields.doc') }}
                         </th>
                         <td>
-                            {{ $suggestsValue->language->name ?? '' }}
+                            @foreach($reward->doc as $key => $media)
+                                <a href="{{ $media->getUrl() }}" target="_blank">
+                                    {{ trans('global.view_file') }}
+                                </a>
+                            @endforeach
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.suggestsValue.fields.country') }}
+                            {{ trans('cruds.reward.fields.link') }}
                         </th>
                         <td>
-                            {{ $suggestsValue->country->name ?? '' }}
+                            {{ $reward->link }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.suggestsValue.fields.status') }}
+                            {{ trans('cruds.reward.fields.status') }}
                         </th>
                         <td>
-                            {{ $suggestsValue->status->name ?? '' }}
+                            {{ $reward->status->name ?? '' }}
                         </td>
                     </tr>
                 </tbody>
             </table>
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.suggests-values.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.rewards.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
