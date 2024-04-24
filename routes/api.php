@@ -65,4 +65,8 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Entities Rewards
     Route::apiResource('entities-rewards', 'EntitiesRewardsApiController');
+
+    // Entities Press
+    Route::apiResource('entities-presses', 'EntitiesPressApiController');
+
 });

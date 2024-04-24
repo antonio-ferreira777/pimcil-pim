@@ -3,28 +3,31 @@
 namespace App\Models;
 
 use App\Traits\Auditable;
+use Carbon\Carbon;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class SuggestsValue extends Model
+class EntitiesPress extends Model
 {
     use SoftDeletes, Auditable, HasFactory;
 
-    public $table = 'suggests_values';
+    public $table = 'entities_presses';
 
     protected $dates = [
+        'date',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
 
     protected $fillable = [
-        'suggest_id',
-        'value',
-        'language_id',
-        'country_id',
+        'entity_id',
+        'name',
+        'date',
+        'comment',
+        'url',
         'status_id',
         'created_at',
         'updated_at',
@@ -36,19 +39,19 @@ class SuggestsValue extends Model
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function suggest()
+    public function entity()
     {
-        return $this->belongsTo(Suggest::class, 'suggest_id');
+        return $this->belongsTo(Entity::class, 'entity_id');
     }
 
-    public function language()
+    public function getDateAttribute($value)
     {
-        return $this->belongsTo(Language::class, 'language_id');
+        return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;
     }
 
-    public function country()
+    public function setDateAttribute($value)
     {
-        return $this->belongsTo(Country::class, 'country_id');
+        $this->attributes['date'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
     }
 
     public function status()

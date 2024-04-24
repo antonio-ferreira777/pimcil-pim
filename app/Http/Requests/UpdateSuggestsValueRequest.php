@@ -29,13 +29,6 @@ class UpdateSuggestsValueRequest extends FormRequest
                 'required',
                 'integer',
             ],
-            'status' => [
-                'required',
-                'integer',
-                'min:-2147483648',
-                'max:2147483647',
-                'unique:suggests_values,status,' . request()->route('suggests_value')->id,
-            ],
         ];
     }
 }
