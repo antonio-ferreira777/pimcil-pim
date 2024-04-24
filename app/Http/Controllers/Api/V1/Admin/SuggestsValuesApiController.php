@@ -17,7 +17,7 @@ class SuggestsValuesApiController extends Controller
     {
         abort_if(Gate::denies('suggests_value_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new SuggestsValueResource(SuggestsValue::with(['suggest', 'language'])->get());
+        return new SuggestsValueResource(SuggestsValue::with(['suggest', 'language', 'country'])->get());
     }
 
     public function store(StoreSuggestsValueRequest $request)
@@ -33,7 +33,7 @@ class SuggestsValuesApiController extends Controller
     {
         abort_if(Gate::denies('suggests_value_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new SuggestsValueResource($suggestsValue->load(['suggest', 'language']));
+        return new SuggestsValueResource($suggestsValue->load(['suggest', 'language', 'country']));
     }
 
     public function update(UpdateSuggestsValueRequest $request, SuggestsValue $suggestsValue)

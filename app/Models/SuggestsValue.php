@@ -24,6 +24,7 @@ class SuggestsValue extends Model
         'suggest_id',
         'value',
         'language_id',
+        'country_id',
         'status',
         'created_at',
         'updated_at',
@@ -43,5 +44,10 @@ class SuggestsValue extends Model
     public function language()
     {
         return $this->belongsTo(Language::class, 'language_id');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id');
     }
 }

@@ -34,6 +34,9 @@
                         {{ trans('cruds.suggestsValue.fields.language') }}
                     </th>
                     <th>
+                        {{ trans('cruds.suggestsValue.fields.country') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.suggestsValue.fields.status') }}
                     </th>
                     <th>
@@ -96,6 +99,7 @@
 { data: 'suggest_name', name: 'suggest.name' },
 { data: 'value', name: 'value' },
 { data: 'language_name', name: 'language.name' },
+{ data: 'country_name', name: 'country.name' },
 { data: 'status', name: 'status' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
