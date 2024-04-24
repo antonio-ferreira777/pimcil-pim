@@ -68,4 +68,5 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Entities Press
     Route::apiResource('entities-presses', 'EntitiesPressApiController');
+
 });

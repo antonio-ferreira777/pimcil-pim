@@ -759,5 +759,4 @@ return [
             'deleted_at_helper' => ' ',
         ],
     ],
-
 ];
