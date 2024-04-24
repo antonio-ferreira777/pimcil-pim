@@ -116,8 +116,9 @@
             </div>
             <div class="form-group">
                 <div class="form-check {{ $errors->has('channels_transversality') ? 'is-invalid' : '' }}">
-                    <input class="form-check-input" type="checkbox" name="channels_transversality" id="channels_transversality" value="1" {{ $field->channels_transversality || old('channels_transversality', 0) === 1 ? 'checked' : '' }} required>
-                    <label class="required form-check-label" for="channels_transversality">{{ trans('cruds.field.fields.channels_transversality') }}</label>
+                    <input type="hidden" name="channels_transversality" value="0">
+                    <input class="form-check-input" type="checkbox" name="channels_transversality" id="channels_transversality" value="1" {{ $field->channels_transversality || old('channels_transversality', 0) === 1 ? 'checked' : '' }}>
+                    <label class="form-check-label" for="channels_transversality">{{ trans('cruds.field.fields.channels_transversality') }}</label>
                 </div>
                 @if($errors->has('channels_transversality'))
                     <div class="invalid-feedback">
@@ -128,8 +129,9 @@
             </div>
             <div class="form-group">
                 <div class="form-check {{ $errors->has('language_transversality') ? 'is-invalid' : '' }}">
-                    <input class="form-check-input" type="checkbox" name="language_transversality" id="language_transversality" value="1" {{ $field->language_transversality || old('language_transversality', 0) === 1 ? 'checked' : '' }} required>
-                    <label class="required form-check-label" for="language_transversality">{{ trans('cruds.field.fields.language_transversality') }}</label>
+                    <input type="hidden" name="language_transversality" value="0">
+                    <input class="form-check-input" type="checkbox" name="language_transversality" id="language_transversality" value="1" {{ $field->language_transversality || old('language_transversality', 0) === 1 ? 'checked' : '' }}>
+                    <label class="form-check-label" for="language_transversality">{{ trans('cruds.field.fields.language_transversality') }}</label>
                 </div>
                 @if($errors->has('language_transversality'))
                     <div class="invalid-feedback">
