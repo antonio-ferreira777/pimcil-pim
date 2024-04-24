@@ -661,5 +661,27 @@ return [
             'deleted_at_helper' => ' ',
         ],
     ],
+    'localization' => [
+        'title'          => 'Localization',
+        'title_singular' => 'Localization',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => ' ',
+            'data_table'        => 'Data Table',
+            'data_table_helper' => ' ',
+            'data'              => 'Data',
+            'data_helper'       => ' ',
+            'data_value'        => 'Data Value',
+            'data_value_helper' => ' ',
+            'language'          => 'Language',
+            'language_helper'   => ' ',
+            'created_at'        => 'Created at',
+            'created_at_helper' => ' ',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => ' ',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => ' ',
+        ],
+    ],
 
 ];

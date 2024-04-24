@@ -592,6 +592,26 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 146,
+                'title' => 'localization_create',
+            ],
+            [
+                'id'    => 147,
+                'title' => 'localization_edit',
+            ],
+            [
+                'id'    => 148,
+                'title' => 'localization_show',
+            ],
+            [
+                'id'    => 149,
+                'title' => 'localization_delete',
+            ],
+            [
+                'id'    => 150,
+                'title' => 'localization_access',
+            ],
+            [
+                'id'    => 151,
                 'title' => 'profile_password_edit',
             ],
         ];

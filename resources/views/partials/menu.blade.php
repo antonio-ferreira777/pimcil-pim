@@ -165,7 +165,7 @@
             </li>
         @endcan
         @can('admin_setting_access')
-            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/languages*") ? "c-show" : "" }} {{ request()->is("admin/channels*") ? "c-show" : "" }} {{ request()->is("admin/form-blocs*") ? "c-show" : "" }} {{ request()->is("admin/fields*") ? "c-show" : "" }} {{ request()->is("admin/suggests*") ? "c-show" : "" }} {{ request()->is("admin/suggests-values*") ? "c-show" : "" }} {{ request()->is("admin/statuses*") ? "c-show" : "" }} {{ request()->is("admin/entities-types*") ? "c-show" : "" }} {{ request()->is("admin/entities-fields*") ? "c-show" : "" }} {{ request()->is("admin/entities-files*") ? "c-show" : "" }} {{ request()->is("admin/fyles-types*") ? "c-show" : "" }} {{ request()->is("admin/variations*") ? "c-show" : "" }} {{ request()->is("admin/entities-versionings*") ? "c-show" : "" }}">
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/languages*") ? "c-show" : "" }} {{ request()->is("admin/channels*") ? "c-show" : "" }} {{ request()->is("admin/form-blocs*") ? "c-show" : "" }} {{ request()->is("admin/fields*") ? "c-show" : "" }} {{ request()->is("admin/suggests*") ? "c-show" : "" }} {{ request()->is("admin/suggests-values*") ? "c-show" : "" }} {{ request()->is("admin/statuses*") ? "c-show" : "" }} {{ request()->is("admin/entities-types*") ? "c-show" : "" }} {{ request()->is("admin/entities-fields*") ? "c-show" : "" }} {{ request()->is("admin/entities-files*") ? "c-show" : "" }} {{ request()->is("admin/fyles-types*") ? "c-show" : "" }} {{ request()->is("admin/variations*") ? "c-show" : "" }} {{ request()->is("admin/entities-versionings*") ? "c-show" : "" }} {{ request()->is("admin/countries*") ? "c-show" : "" }} {{ request()->is("admin/localizations*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
@@ -303,6 +303,26 @@
                             </a>
                         </li>
                     @endcan
+                    @can('country_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.countries.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/countries") || request()->is("admin/countries/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-flag c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.country.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('localization_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.localizations.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/localizations") || request()->is("admin/localizations/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.localization.title') }}
+                            </a>
+                        </li>
+                    @endcan
                 </ul>
             </li>
         @endcan
@@ -345,16 +365,6 @@
 
                     </i>
                     {{ trans('cruds.userAlert.title') }}
-                </a>
-            </li>
-        @endcan
-        @can('country_access')
-            <li class="c-sidebar-nav-item">
-                <a href="{{ route("admin.countries.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/countries") || request()->is("admin/countries/*") ? "c-active" : "" }}">
-                    <i class="fa-fw fas fa-flag c-sidebar-nav-icon">
-
-                    </i>
-                    {{ trans('cruds.country.title') }}
                 </a>
             </li>
         @endcan
