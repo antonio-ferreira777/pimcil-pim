@@ -31,6 +31,7 @@ class Grape extends Model implements HasMedia
         'name',
         'synonyms',
         'color',
+        'country_id',
         'description',
         'status_id',
         'created_at',
@@ -47,6 +48,11 @@ class Grape extends Model implements HasMedia
     {
         $this->addMediaConversion('thumb')->fit('crop', 50, 50);
         $this->addMediaConversion('preview')->fit('crop', 120, 120);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id');
     }
 
     public function getPicturesAttribute()
