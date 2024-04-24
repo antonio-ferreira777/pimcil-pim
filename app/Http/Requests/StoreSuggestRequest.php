@@ -32,7 +32,6 @@ class StoreSuggestRequest extends FormRequest
                 'integer',
                 'min:-2147483648',
                 'max:2147483647',
-                'unique:suggests,editable',
             ],
             'status_id' => [
                 'required',

@@ -12,7 +12,7 @@ class CreateSuggestsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->integer('editable')->unique();
+            $table->integer('editable');
             $table->timestamps();
             $table->softDeletes();
         });
