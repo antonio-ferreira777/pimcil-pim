@@ -36,12 +36,6 @@ class StoreFieldRequest extends FormRequest
                 'required',
                 'array',
             ],
-            'channels_transversality' => [
-                'required',
-            ],
-            'language_transversality' => [
-                'required',
-            ],
             'display_order' => [
                 'nullable',
                 'integer',
