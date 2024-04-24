@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Traits\Auditable;
-use App\Traits\MultiTenantModelTrait;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,20 +10,14 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class File extends Model implements HasMedia
+class Winemaker extends Model implements HasMedia
 {
-    use SoftDeletes, MultiTenantModelTrait, InteractsWithMedia, Auditable, HasFactory;
+    use SoftDeletes, InteractsWithMedia, HasFactory;
 
-    public $table = 'files';
+    public $table = 'winemakers';
 
     protected $appends = [
-        'file',
-        'path',
-    ];
-
-    public static $searchable = [
-        'file',
-        'name',
+        'pictures',
     ];
 
     protected $dates = [
@@ -36,10 +28,7 @@ class File extends Model implements HasMedia
 
     protected $fillable = [
         'name',
-        'ext',
-        'size',
-        'type_id',
-        'team_id',
+        'description',
         'status_id',
         'created_at',
         'updated_at',
@@ -57,24 +46,16 @@ class File extends Model implements HasMedia
         $this->addMediaConversion('preview')->fit('crop', 120, 120);
     }
 
-    public function getFileAttribute()
+    public function getPicturesAttribute()
     {
-        return $this->getMedia('file');
-    }
+        $files = $this->getMedia('pictures');
+        $files->each(function ($item) {
+            $item->url       = $item->getUrl();
+            $item->thumbnail = $item->getUrl('thumb');
+            $item->preview   = $item->getUrl('preview');
+        });
 
-    public function getPathAttribute()
-    {
-        return $this->getMedia('path');
-    }
-
-    public function type()
-    {
-        return $this->belongsTo(FilesType::class, 'type_id');
-    }
-
-    public function team()
-    {
-        return $this->belongsTo(Team::class, 'team_id');
+        return $files;
     }
 
     public function status()
