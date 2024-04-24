@@ -21,6 +21,16 @@
                 <span class="help-block">{{ trans('cruds.formBloc.fields.name_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="display_order">{{ trans('cruds.formBloc.fields.display_order') }}</label>
+                <input class="form-control {{ $errors->has('display_order') ? 'is-invalid' : '' }}" type="number" name="display_order" id="display_order" value="{{ old('display_order', $formBloc->display_order) }}" step="1">
+                @if($errors->has('display_order'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('display_order') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.formBloc.fields.display_order_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label class="required" for="status_id">{{ trans('cruds.formBloc.fields.status') }}</label>
                 <select class="form-control select2 {{ $errors->has('status') ? 'is-invalid' : '' }}" name="status_id" id="status_id" required>
                     @foreach($statuses as $id => $entry)

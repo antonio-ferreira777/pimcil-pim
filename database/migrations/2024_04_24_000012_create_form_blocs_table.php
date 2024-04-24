@@ -11,6 +11,7 @@ class CreateFormBlocsTable extends Migration
         Schema::create('form_blocs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->integer('display_order')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

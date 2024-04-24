@@ -33,6 +33,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.formBloc.fields.display_order') }}
+                        </th>
+                        <td>
+                            {{ $formBloc->display_order }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.formBloc.fields.status') }}
                         </th>
                         <td>

@@ -55,6 +55,9 @@
                             {{ trans('cruds.field.fields.language_transversality') }}
                         </th>
                         <th>
+                            {{ trans('cruds.field.fields.display_order') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.field.fields.status') }}
                         </th>
                         <th>
@@ -105,6 +108,9 @@
                             <td>
                                 <span style="display:none">{{ $field->language_transversality ?? '' }}</span>
                                 <input type="checkbox" disabled="disabled" {{ $field->language_transversality ? 'checked' : '' }}>
+                            </td>
+                            <td>
+                                {{ $field->display_order ?? '' }}
                             </td>
                             <td>
                                 {{ $field->status->name ?? '' }}
