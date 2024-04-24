@@ -18,6 +18,7 @@ class CreateFieldsTable extends Migration
             $table->boolean('channels_transversality')->default(0);
             $table->boolean('language_transversality')->default(0);
             $table->integer('display_order')->nullable();
+            $table->string('data_source')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

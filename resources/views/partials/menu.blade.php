@@ -348,6 +348,16 @@
                 </a>
             </li>
         @endcan
+        @can('country_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.countries.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/countries") || request()->is("admin/countries/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-flag c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.country.title') }}
+                </a>
+            </li>
+        @endcan
         @php($unread = \App\Models\QaTopic::unreadCount())
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.messenger.index") }}" class="{{ request()->is("admin/messenger") || request()->is("admin/messenger/*") ? "c-active" : "" }} c-sidebar-nav-link">

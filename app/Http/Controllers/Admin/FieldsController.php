@@ -87,6 +87,9 @@ class FieldsController extends Controller
             $table->editColumn('display_order', function ($row) {
                 return $row->display_order ? $row->display_order : '';
             });
+            $table->editColumn('data_source', function ($row) {
+                return $row->data_source ? $row->data_source : '';
+            });
             $table->addColumn('status_name', function ($row) {
                 return $row->status ? $row->status->name : '';
             });

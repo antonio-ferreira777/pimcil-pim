@@ -58,6 +58,9 @@
                             {{ trans('cruds.field.fields.display_order') }}
                         </th>
                         <th>
+                            {{ trans('cruds.field.fields.data_source') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.field.fields.status') }}
                         </th>
                         <th>
@@ -111,6 +114,9 @@
                             </td>
                             <td>
                                 {{ $field->display_order ?? '' }}
+                            </td>
+                            <td>
+                                {{ $field->data_source ?? '' }}
                             </td>
                             <td>
                                 {{ $field->status->name ?? '' }}

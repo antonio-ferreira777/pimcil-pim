@@ -48,6 +48,10 @@ class StoreFieldRequest extends FormRequest
                 'min:-2147483648',
                 'max:2147483647',
             ],
+            'data_source' => [
+                'string',
+                'nullable',
+            ],
             'status_id' => [
                 'required',
                 'integer',
