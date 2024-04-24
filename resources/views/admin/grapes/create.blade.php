@@ -13,9 +13,7 @@
                 <label class="required" for="name">{{ trans('cruds.grape.fields.name') }}</label>
                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
                 @if($errors->has('name'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('name') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('name') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.grape.fields.name_helper') }}</span>
             </div>
@@ -23,9 +21,7 @@
                 <label for="synonyms">{{ trans('cruds.grape.fields.synonyms') }}</label>
                 <input class="form-control {{ $errors->has('synonyms') ? 'is-invalid' : '' }}" type="text" name="synonyms" id="synonyms" value="{{ old('synonyms', '') }}">
                 @if($errors->has('synonyms'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('synonyms') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('synonyms') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.grape.fields.synonyms_helper') }}</span>
             </div>
@@ -33,9 +29,7 @@
                 <label for="color">{{ trans('cruds.grape.fields.color') }}</label>
                 <input class="form-control {{ $errors->has('color') ? 'is-invalid' : '' }}" type="text" name="color" id="color" value="{{ old('color', '') }}">
                 @if($errors->has('color'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('color') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('color') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.grape.fields.color_helper') }}</span>
             </div>
@@ -47,9 +41,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('country'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('country') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('country') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.grape.fields.country_helper') }}</span>
             </div>
@@ -57,9 +49,7 @@
                 <label for="description">{{ trans('cruds.grape.fields.description') }}</label>
                 <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description">{{ old('description') }}</textarea>
                 @if($errors->has('description'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('description') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('description') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.grape.fields.description_helper') }}</span>
             </div>
@@ -68,9 +58,7 @@
                 <div class="needsclick dropzone {{ $errors->has('pictures') ? 'is-invalid' : '' }}" id="pictures-dropzone">
                 </div>
                 @if($errors->has('pictures'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('pictures') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('pictures') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.grape.fields.pictures_helper') }}</span>
             </div>
@@ -82,9 +70,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('status'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('status') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('status') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.grape.fields.status_helper') }}</span>
             </div>

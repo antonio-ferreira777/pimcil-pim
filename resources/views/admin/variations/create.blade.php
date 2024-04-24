@@ -17,9 +17,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('entity'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('entity') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('entity') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.variation.fields.entity_helper') }}</span>
             </div>
@@ -31,9 +29,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('field'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('field') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('field') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.variation.fields.field_helper') }}</span>
             </div>
@@ -45,9 +41,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('master_entity'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('master_entity') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('master_entity') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.variation.fields.master_entity_helper') }}</span>
             </div>

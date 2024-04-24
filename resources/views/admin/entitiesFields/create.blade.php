@@ -17,9 +17,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('entity'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('entity') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('entity') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesField.fields.entity_helper') }}</span>
             </div>
@@ -31,9 +29,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('field'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('field') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('field') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesField.fields.field_helper') }}</span>
             </div>
@@ -41,9 +37,7 @@
                 <label for="field_value">{{ trans('cruds.entitiesField.fields.field_value') }}</label>
                 <textarea class="form-control {{ $errors->has('field_value') ? 'is-invalid' : '' }}" name="field_value" id="field_value">{{ old('field_value') }}</textarea>
                 @if($errors->has('field_value'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('field_value') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('field_value') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesField.fields.field_value_helper') }}</span>
             </div>
@@ -55,9 +49,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('language'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('language') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('language') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesField.fields.language_helper') }}</span>
             </div>
@@ -69,9 +61,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('status'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('status') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('status') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesField.fields.status_helper') }}</span>
             </div>

@@ -14,9 +14,7 @@
                 <label class="required" for="name">{{ trans('cruds.field.fields.name') }}</label>
                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', $field->name) }}" required>
                 @if($errors->has('name'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('name') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('name') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.name_helper') }}</span>
             </div>
@@ -24,9 +22,7 @@
                 <label for="description">{{ trans('cruds.field.fields.description') }}</label>
                 <input class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" type="text" name="description" id="description" value="{{ old('description', $field->description) }}">
                 @if($errors->has('description'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('description') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('description') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.description_helper') }}</span>
             </div>
@@ -39,9 +35,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('type'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('type') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('type') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.type_helper') }}</span>
             </div>
@@ -49,9 +43,7 @@
                 <label for="default">{{ trans('cruds.field.fields.default') }}</label>
                 <input class="form-control {{ $errors->has('default') ? 'is-invalid' : '' }}" type="text" name="default" id="default" value="{{ old('default', $field->default) }}">
                 @if($errors->has('default'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('default') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('default') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.default_helper') }}</span>
             </div>
@@ -62,9 +54,7 @@
                     <label class="form-check-label" for="nullable">{{ trans('cruds.field.fields.nullable') }}</label>
                 </div>
                 @if($errors->has('nullable'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('nullable') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('nullable') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.nullable_helper') }}</span>
             </div>
@@ -80,9 +70,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('form_blocs'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('form_blocs') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('form_blocs') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.form_bloc_helper') }}</span>
             </div>
@@ -94,9 +82,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('taxonomy'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('taxonomy') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('taxonomy') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.taxonomy_helper') }}</span>
             </div>
@@ -108,9 +94,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('channel'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('channel') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('channel') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.channel_helper') }}</span>
             </div>
@@ -121,9 +105,7 @@
                     <label class="form-check-label" for="channels_transversality">{{ trans('cruds.field.fields.channels_transversality') }}</label>
                 </div>
                 @if($errors->has('channels_transversality'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('channels_transversality') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('channels_transversality') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.channels_transversality_helper') }}</span>
             </div>
@@ -134,9 +116,7 @@
                     <label class="form-check-label" for="language_transversality">{{ trans('cruds.field.fields.language_transversality') }}</label>
                 </div>
                 @if($errors->has('language_transversality'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('language_transversality') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('language_transversality') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.language_transversality_helper') }}</span>
             </div>
@@ -144,9 +124,7 @@
                 <label for="display_order">{{ trans('cruds.field.fields.display_order') }}</label>
                 <input class="form-control {{ $errors->has('display_order') ? 'is-invalid' : '' }}" type="number" name="display_order" id="display_order" value="{{ old('display_order', $field->display_order) }}" step="1">
                 @if($errors->has('display_order'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('display_order') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('display_order') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.display_order_helper') }}</span>
             </div>
@@ -154,9 +132,7 @@
                 <label for="data_source">{{ trans('cruds.field.fields.data_source') }}</label>
                 <input class="form-control {{ $errors->has('data_source') ? 'is-invalid' : '' }}" type="text" name="data_source" id="data_source" value="{{ old('data_source', $field->data_source) }}">
                 @if($errors->has('data_source'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('data_source') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('data_source') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.data_source_helper') }}</span>
             </div>
@@ -168,9 +144,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('status'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('status') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('status') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.status_helper') }}</span>
             </div>

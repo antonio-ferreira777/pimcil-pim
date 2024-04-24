@@ -17,9 +17,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('suggest'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('suggest') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('suggest') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.suggestsValue.fields.suggest_helper') }}</span>
             </div>
@@ -27,9 +25,7 @@
                 <label class="required" for="value">{{ trans('cruds.suggestsValue.fields.value') }}</label>
                 <input class="form-control {{ $errors->has('value') ? 'is-invalid' : '' }}" type="text" name="value" id="value" value="{{ old('value', '') }}" required>
                 @if($errors->has('value'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('value') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('value') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.suggestsValue.fields.value_helper') }}</span>
             </div>
@@ -41,9 +37,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('language'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('language') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('language') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.suggestsValue.fields.language_helper') }}</span>
             </div>
@@ -55,9 +49,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('country'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('country') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('country') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.suggestsValue.fields.country_helper') }}</span>
             </div>
@@ -65,9 +57,7 @@
                 <label for="description">{{ trans('cruds.suggestsValue.fields.description') }}</label>
                 <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description">{{ old('description') }}</textarea>
                 @if($errors->has('description'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('description') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('description') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.suggestsValue.fields.description_helper') }}</span>
             </div>
@@ -76,9 +66,7 @@
                 <div class="needsclick dropzone {{ $errors->has('picto') ? 'is-invalid' : '' }}" id="picto-dropzone">
                 </div>
                 @if($errors->has('picto'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('picto') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('picto') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.suggestsValue.fields.picto_helper') }}</span>
             </div>
@@ -87,9 +75,7 @@
                 <div class="needsclick dropzone {{ $errors->has('files') ? 'is-invalid' : '' }}" id="files-dropzone">
                 </div>
                 @if($errors->has('files'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('files') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('files') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.suggestsValue.fields.files_helper') }}</span>
             </div>
@@ -98,9 +84,7 @@
                 <div class="needsclick dropzone {{ $errors->has('pictures') ? 'is-invalid' : '' }}" id="pictures-dropzone">
                 </div>
                 @if($errors->has('pictures'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('pictures') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('pictures') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.suggestsValue.fields.pictures_helper') }}</span>
             </div>
@@ -108,9 +92,7 @@
                 <label for="table_link">{{ trans('cruds.suggestsValue.fields.table_link') }}</label>
                 <input class="form-control {{ $errors->has('table_link') ? 'is-invalid' : '' }}" type="text" name="table_link" id="table_link" value="{{ old('table_link', '') }}">
                 @if($errors->has('table_link'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('table_link') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('table_link') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.suggestsValue.fields.table_link_helper') }}</span>
             </div>
@@ -118,9 +100,7 @@
                 <label for="table_link_value">{{ trans('cruds.suggestsValue.fields.table_link_value') }}</label>
                 <input class="form-control {{ $errors->has('table_link_value') ? 'is-invalid' : '' }}" type="number" name="table_link_value" id="table_link_value" value="{{ old('table_link_value', '') }}" step="1">
                 @if($errors->has('table_link_value'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('table_link_value') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('table_link_value') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.suggestsValue.fields.table_link_value_helper') }}</span>
             </div>
@@ -132,9 +112,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('status'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('status') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('status') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.suggestsValue.fields.status_helper') }}</span>
             </div>

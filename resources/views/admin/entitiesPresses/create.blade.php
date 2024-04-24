@@ -17,9 +17,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('entity'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('entity') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('entity') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesPress.fields.entity_helper') }}</span>
             </div>
@@ -27,9 +25,7 @@
                 <label class="required" for="name">{{ trans('cruds.entitiesPress.fields.name') }}</label>
                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
                 @if($errors->has('name'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('name') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('name') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesPress.fields.name_helper') }}</span>
             </div>
@@ -37,9 +33,7 @@
                 <label for="date">{{ trans('cruds.entitiesPress.fields.date') }}</label>
                 <input class="form-control date {{ $errors->has('date') ? 'is-invalid' : '' }}" type="text" name="date" id="date" value="{{ old('date') }}">
                 @if($errors->has('date'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('date') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('date') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesPress.fields.date_helper') }}</span>
             </div>
@@ -47,9 +41,7 @@
                 <label for="comment">{{ trans('cruds.entitiesPress.fields.comment') }}</label>
                 <textarea class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }}" name="comment" id="comment">{{ old('comment') }}</textarea>
                 @if($errors->has('comment'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('comment') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('comment') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesPress.fields.comment_helper') }}</span>
             </div>
@@ -57,9 +49,7 @@
                 <label for="url">{{ trans('cruds.entitiesPress.fields.url') }}</label>
                 <input class="form-control {{ $errors->has('url') ? 'is-invalid' : '' }}" type="text" name="url" id="url" value="{{ old('url', '') }}">
                 @if($errors->has('url'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('url') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('url') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesPress.fields.url_helper') }}</span>
             </div>
@@ -71,9 +61,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('status'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('status') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('status') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entitiesPress.fields.status_helper') }}</span>
             </div>

@@ -14,9 +14,7 @@
                 <label class="required" for="ref">{{ trans('cruds.entity.fields.ref') }}</label>
                 <input class="form-control {{ $errors->has('ref') ? 'is-invalid' : '' }}" type="text" name="ref" id="ref" value="{{ old('ref', $entity->ref) }}" required>
                 @if($errors->has('ref'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('ref') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('ref') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entity.fields.ref_helper') }}</span>
             </div>
@@ -24,9 +22,7 @@
                 <label for="ean">{{ trans('cruds.entity.fields.ean') }}</label>
                 <input class="form-control {{ $errors->has('ean') ? 'is-invalid' : '' }}" type="text" name="ean" id="ean" value="{{ old('ean', $entity->ean) }}">
                 @if($errors->has('ean'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('ean') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('ean') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entity.fields.ean_helper') }}</span>
             </div>
@@ -34,9 +30,7 @@
                 <label class="required" for="name">{{ trans('cruds.entity.fields.name') }}</label>
                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', $entity->name) }}" required>
                 @if($errors->has('name'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('name') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('name') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entity.fields.name_helper') }}</span>
             </div>
@@ -48,9 +42,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('taxonomy'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('taxonomy') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('taxonomy') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entity.fields.taxonomy_helper') }}</span>
             </div>
@@ -62,9 +54,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('type'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('type') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('type') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entity.fields.type_helper') }}</span>
             </div>
@@ -76,9 +66,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('language'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('language') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('language') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entity.fields.language_helper') }}</span>
             </div>
@@ -86,9 +74,7 @@
                 <label for="valid_from">{{ trans('cruds.entity.fields.valid_from') }}</label>
                 <input class="form-control datetime {{ $errors->has('valid_from') ? 'is-invalid' : '' }}" type="text" name="valid_from" id="valid_from" value="{{ old('valid_from', $entity->valid_from) }}">
                 @if($errors->has('valid_from'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('valid_from') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('valid_from') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entity.fields.valid_from_helper') }}</span>
             </div>
@@ -96,9 +82,7 @@
                 <label for="valid_to">{{ trans('cruds.entity.fields.valid_to') }}</label>
                 <input class="form-control datetime {{ $errors->has('valid_to') ? 'is-invalid' : '' }}" type="text" name="valid_to" id="valid_to" value="{{ old('valid_to', $entity->valid_to) }}">
                 @if($errors->has('valid_to'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('valid_to') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('valid_to') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.entity.fields.valid_to_helper') }}</span>
             </div>

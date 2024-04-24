@@ -14,9 +14,7 @@
                 <label class="required" for="name">{{ trans('cruds.reward.fields.name') }}</label>
                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', $reward->name) }}" required>
                 @if($errors->has('name'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('name') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('name') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.reward.fields.name_helper') }}</span>
             </div>
@@ -25,9 +23,7 @@
                 <div class="needsclick dropzone {{ $errors->has('picto') ? 'is-invalid' : '' }}" id="picto-dropzone">
                 </div>
                 @if($errors->has('picto'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('picto') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('picto') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.reward.fields.picto_helper') }}</span>
             </div>
@@ -36,9 +32,7 @@
                 <div class="needsclick dropzone {{ $errors->has('doc') ? 'is-invalid' : '' }}" id="doc-dropzone">
                 </div>
                 @if($errors->has('doc'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('doc') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('doc') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.reward.fields.doc_helper') }}</span>
             </div>
@@ -46,9 +40,7 @@
                 <label for="link">{{ trans('cruds.reward.fields.link') }}</label>
                 <input class="form-control {{ $errors->has('link') ? 'is-invalid' : '' }}" type="text" name="link" id="link" value="{{ old('link', $reward->link) }}">
                 @if($errors->has('link'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('link') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('link') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.reward.fields.link_helper') }}</span>
             </div>
@@ -60,9 +52,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('status'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('status') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('status') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.reward.fields.status_helper') }}</span>
             </div>

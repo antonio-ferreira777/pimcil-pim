@@ -14,9 +14,7 @@
                 <label class="required" for="name">{{ trans('cruds.channel.fields.name') }}</label>
                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', $channel->name) }}" required>
                 @if($errors->has('name'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('name') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('name') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.channel.fields.name_helper') }}</span>
             </div>
@@ -24,9 +22,7 @@
                 <label class="required" for="slug">{{ trans('cruds.channel.fields.slug') }}</label>
                 <input class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}" type="text" name="slug" id="slug" value="{{ old('slug', $channel->slug) }}" required>
                 @if($errors->has('slug'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('slug') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('slug') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.channel.fields.slug_helper') }}</span>
             </div>
@@ -38,9 +34,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('status'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('status') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('status') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.channel.fields.status_helper') }}</span>
             </div>

@@ -14,9 +14,7 @@
                 <div class="needsclick dropzone {{ $errors->has('file') ? 'is-invalid' : '' }}" id="file-dropzone">
                 </div>
                 @if($errors->has('file'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('file') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('file') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.file.fields.file_helper') }}</span>
             </div>
@@ -24,9 +22,7 @@
                 <label for="name">{{ trans('cruds.file.fields.name') }}</label>
                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}">
                 @if($errors->has('name'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('name') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('name') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.file.fields.name_helper') }}</span>
             </div>
@@ -35,9 +31,7 @@
                 <div class="needsclick dropzone {{ $errors->has('path') ? 'is-invalid' : '' }}" id="path-dropzone">
                 </div>
                 @if($errors->has('path'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('path') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('path') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.file.fields.path_helper') }}</span>
             </div>
@@ -45,9 +39,7 @@
                 <label for="ext">{{ trans('cruds.file.fields.ext') }}</label>
                 <input class="form-control {{ $errors->has('ext') ? 'is-invalid' : '' }}" type="text" name="ext" id="ext" value="{{ old('ext', '') }}">
                 @if($errors->has('ext'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('ext') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('ext') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.file.fields.ext_helper') }}</span>
             </div>
@@ -55,9 +47,7 @@
                 <label for="size">{{ trans('cruds.file.fields.size') }}</label>
                 <input class="form-control {{ $errors->has('size') ? 'is-invalid' : '' }}" type="text" name="size" id="size" value="{{ old('size', '') }}">
                 @if($errors->has('size'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('size') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('size') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.file.fields.size_helper') }}</span>
             </div>
@@ -69,9 +59,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('type'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('type') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('type') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.file.fields.type_helper') }}</span>
             </div>
@@ -83,9 +71,7 @@
                     @endforeach
                 </select>
                 @if($errors->has('status'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('status') }}
-                    </div>
+                    <span class="text-danger">{{ $errors->first('status') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.file.fields.status_helper') }}</span>
             </div>
