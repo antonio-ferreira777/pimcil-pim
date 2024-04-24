@@ -32,7 +32,6 @@ class UpdateSuggestRequest extends FormRequest
                 'integer',
                 'min:-2147483648',
                 'max:2147483647',
-                'unique:suggests,editable,' . request()->route('suggest')->id,
             ],
             'status_id' => [
                 'required',
