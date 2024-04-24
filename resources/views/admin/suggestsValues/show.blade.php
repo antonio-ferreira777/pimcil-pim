@@ -49,6 +49,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.suggestsValue.fields.country') }}
+                        </th>
+                        <td>
+                            {{ $suggestsValue->country->name ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.suggestsValue.fields.status') }}
                         </th>
                         <td>

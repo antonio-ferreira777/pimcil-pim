@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroySuggestsValueRequest;
 use App\Http\Requests\StoreSuggestsValueRequest;
 use App\Http\Requests\UpdateSuggestsValueRequest;
+use App\Models\Country;
 use App\Models\Language;
 use App\Models\Suggest;
 use App\Models\SuggestsValue;
@@ -21,7 +22,7 @@ class SuggestsValuesController extends Controller
         abort_if(Gate::denies('suggests_value_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = SuggestsValue::with(['suggest', 'language'])->select(sprintf('%s.*', (new SuggestsValue)->table));
+            $query = SuggestsValue::with(['suggest', 'language', 'country'])->select(sprintf('%s.*', (new SuggestsValue)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -56,11 +57,15 @@ class SuggestsValuesController extends Controller
                 return $row->language ? $row->language->name : '';
             });
 
+            $table->addColumn('country_name', function ($row) {
+                return $row->country ? $row->country->name : '';
+            });
+
             $table->editColumn('status', function ($row) {
                 return $row->status ? $row->status : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder', 'suggest', 'language']);
+            $table->rawColumns(['actions', 'placeholder', 'suggest', 'language', 'country']);
 
             return $table->make(true);
         }
@@ -76,7 +81,9 @@ class SuggestsValuesController extends Controller
 
         $languages = Language::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.suggestsValues.create', compact('languages', 'suggests'));
+        $countries = Country::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.suggestsValues.create', compact('countries', 'languages', 'suggests'));
     }
 
     public function store(StoreSuggestsValueRequest $request)
@@ -94,9 +101,11 @@ class SuggestsValuesController extends Controller
 
         $languages = Language::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $suggestsValue->load('suggest', 'language');
+        $countries = Country::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.suggestsValues.edit', compact('languages', 'suggests', 'suggestsValue'));
+        $suggestsValue->load('suggest', 'language', 'country');
+
+        return view('admin.suggestsValues.edit', compact('countries', 'languages', 'suggests', 'suggestsValue'));
     }
 
     public function update(UpdateSuggestsValueRequest $request, SuggestsValue $suggestsValue)
@@ -110,7 +119,7 @@ class SuggestsValuesController extends Controller
     {
         abort_if(Gate::denies('suggests_value_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $suggestsValue->load('suggest', 'language');
+        $suggestsValue->load('suggest', 'language', 'country');
 
         return view('admin.suggestsValues.show', compact('suggestsValue'));
     }
