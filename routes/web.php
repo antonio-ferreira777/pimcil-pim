@@ -137,6 +137,16 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('localizations/destroy', 'LocalizationController@massDestroy')->name('localizations.massDestroy');
     Route::resource('localizations', 'LocalizationController');
 
+    // Rewards
+    Route::delete('rewards/destroy', 'RewardsController@massDestroy')->name('rewards.massDestroy');
+    Route::post('rewards/media', 'RewardsController@storeMedia')->name('rewards.storeMedia');
+    Route::post('rewards/ckmedia', 'RewardsController@storeCKEditorImages')->name('rewards.storeCKEditorImages');
+    Route::resource('rewards', 'RewardsController');
+
+    // Entities Rewards
+    Route::delete('entities-rewards/destroy', 'EntitiesRewardsController@massDestroy')->name('entities-rewards.massDestroy');
+    Route::resource('entities-rewards', 'EntitiesRewardsController');
+
     Route::get('global-search', 'GlobalSearchController@search')->name('globalSearch');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');

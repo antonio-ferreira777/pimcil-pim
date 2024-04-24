@@ -165,7 +165,7 @@
             </li>
         @endcan
         @can('admin_setting_access')
-            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/languages*") ? "c-show" : "" }} {{ request()->is("admin/channels*") ? "c-show" : "" }} {{ request()->is("admin/form-blocs*") ? "c-show" : "" }} {{ request()->is("admin/fields*") ? "c-show" : "" }} {{ request()->is("admin/suggests*") ? "c-show" : "" }} {{ request()->is("admin/suggests-values*") ? "c-show" : "" }} {{ request()->is("admin/statuses*") ? "c-show" : "" }} {{ request()->is("admin/entities-types*") ? "c-show" : "" }} {{ request()->is("admin/entities-fields*") ? "c-show" : "" }} {{ request()->is("admin/entities-files*") ? "c-show" : "" }} {{ request()->is("admin/fyles-types*") ? "c-show" : "" }} {{ request()->is("admin/variations*") ? "c-show" : "" }} {{ request()->is("admin/entities-versionings*") ? "c-show" : "" }} {{ request()->is("admin/countries*") ? "c-show" : "" }} {{ request()->is("admin/localizations*") ? "c-show" : "" }}">
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/languages*") ? "c-show" : "" }} {{ request()->is("admin/channels*") ? "c-show" : "" }} {{ request()->is("admin/form-blocs*") ? "c-show" : "" }} {{ request()->is("admin/fields*") ? "c-show" : "" }} {{ request()->is("admin/suggests*") ? "c-show" : "" }} {{ request()->is("admin/suggests-values*") ? "c-show" : "" }} {{ request()->is("admin/statuses*") ? "c-show" : "" }} {{ request()->is("admin/entities-types*") ? "c-show" : "" }} {{ request()->is("admin/entities-fields*") ? "c-show" : "" }} {{ request()->is("admin/entities-files*") ? "c-show" : "" }} {{ request()->is("admin/fyles-types*") ? "c-show" : "" }} {{ request()->is("admin/variations*") ? "c-show" : "" }} {{ request()->is("admin/entities-versionings*") ? "c-show" : "" }} {{ request()->is("admin/countries*") ? "c-show" : "" }} {{ request()->is("admin/localizations*") ? "c-show" : "" }} {{ request()->is("admin/rewards*") ? "c-show" : "" }} {{ request()->is("admin/entities-rewards*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
@@ -320,6 +320,26 @@
 
                                 </i>
                                 {{ trans('cruds.localization.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('reward_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.rewards.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/rewards") || request()->is("admin/rewards/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.reward.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('entities_reward_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.entities-rewards.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/entities-rewards") || request()->is("admin/entities-rewards/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.entitiesReward.title') }}
                             </a>
                         </li>
                     @endcan
