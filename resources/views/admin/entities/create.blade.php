@@ -1,0 +1,115 @@
+@extends('layouts.admin')
+@section('content')
+
+<div class="card">
+    <div class="card-header">
+        {{ trans('global.create') }} {{ trans('cruds.entity.title_singular') }}
+    </div>
+
+    <div class="card-body">
+        <form method="POST" action="{{ route("admin.entities.store") }}" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <label class="required" for="ref">{{ trans('cruds.entity.fields.ref') }}</label>
+                <input class="form-control {{ $errors->has('ref') ? 'is-invalid' : '' }}" type="text" name="ref" id="ref" value="{{ old('ref', '') }}" required>
+                @if($errors->has('ref'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('ref') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.entity.fields.ref_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="ean">{{ trans('cruds.entity.fields.ean') }}</label>
+                <input class="form-control {{ $errors->has('ean') ? 'is-invalid' : '' }}" type="text" name="ean" id="ean" value="{{ old('ean', '') }}">
+                @if($errors->has('ean'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('ean') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.entity.fields.ean_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="name">{{ trans('cruds.entity.fields.name') }}</label>
+                <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
+                @if($errors->has('name'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('name') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.entity.fields.name_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="taxonomy_id">{{ trans('cruds.entity.fields.taxonomy') }}</label>
+                <select class="form-control select2 {{ $errors->has('taxonomy') ? 'is-invalid' : '' }}" name="taxonomy_id" id="taxonomy_id" required>
+                    @foreach($taxonomies as $id => $entry)
+                        <option value="{{ $id }}" {{ old('taxonomy_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('taxonomy'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('taxonomy') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.entity.fields.taxonomy_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="type_id">{{ trans('cruds.entity.fields.type') }}</label>
+                <select class="form-control select2 {{ $errors->has('type') ? 'is-invalid' : '' }}" name="type_id" id="type_id" required>
+                    @foreach($types as $id => $entry)
+                        <option value="{{ $id }}" {{ old('type_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('type'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('type') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.entity.fields.type_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="language_id">{{ trans('cruds.entity.fields.language') }}</label>
+                <select class="form-control select2 {{ $errors->has('language') ? 'is-invalid' : '' }}" name="language_id" id="language_id" required>
+                    @foreach($languages as $id => $entry)
+                        <option value="{{ $id }}" {{ old('language_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('language'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('language') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.entity.fields.language_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="valid_from">{{ trans('cruds.entity.fields.valid_from') }}</label>
+                <input class="form-control datetime {{ $errors->has('valid_from') ? 'is-invalid' : '' }}" type="text" name="valid_from" id="valid_from" value="{{ old('valid_from') }}">
+                @if($errors->has('valid_from'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('valid_from') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.entity.fields.valid_from_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="valid_to">{{ trans('cruds.entity.fields.valid_to') }}</label>
+                <input class="form-control datetime {{ $errors->has('valid_to') ? 'is-invalid' : '' }}" type="text" name="valid_to" id="valid_to" value="{{ old('valid_to') }}">
+                @if($errors->has('valid_to'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('valid_to') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.entity.fields.valid_to_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">
+                    {{ trans('global.save') }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@endsection
