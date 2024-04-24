@@ -41,6 +41,7 @@ class Field extends Model
         'channels_transversality',
         'language_transversality',
         'display_order',
+        'data_source',
         'status_id',
         'created_at',
         'updated_at',

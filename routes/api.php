@@ -56,4 +56,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Entities Versioning
     Route::apiResource('entities-versionings', 'EntitiesVersioningApiController');
+
+    // Countries
+    Route::apiResource('countries', 'CountriesApiController');
 });

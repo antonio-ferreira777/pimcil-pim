@@ -115,6 +115,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.field.fields.data_source') }}
+                        </th>
+                        <td>
+                            {{ $field->data_source }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.field.fields.status') }}
                         </th>
                         <td>

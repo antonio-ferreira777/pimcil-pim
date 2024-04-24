@@ -572,6 +572,26 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 141,
+                'title' => 'country_create',
+            ],
+            [
+                'id'    => 142,
+                'title' => 'country_edit',
+            ],
+            [
+                'id'    => 143,
+                'title' => 'country_show',
+            ],
+            [
+                'id'    => 144,
+                'title' => 'country_delete',
+            ],
+            [
+                'id'    => 145,
+                'title' => 'country_access',
+            ],
+            [
+                'id'    => 146,
                 'title' => 'profile_password_edit',
             ],
         ];

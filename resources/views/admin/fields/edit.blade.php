@@ -149,6 +149,16 @@
                 <span class="help-block">{{ trans('cruds.field.fields.display_order_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="data_source">{{ trans('cruds.field.fields.data_source') }}</label>
+                <input class="form-control {{ $errors->has('data_source') ? 'is-invalid' : '' }}" type="text" name="data_source" id="data_source" value="{{ old('data_source', $field->data_source) }}">
+                @if($errors->has('data_source'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('data_source') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.field.fields.data_source_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label class="required" for="status_id">{{ trans('cruds.field.fields.status') }}</label>
                 <select class="form-control select2 {{ $errors->has('status') ? 'is-invalid' : '' }}" name="status_id" id="status_id" required>
                     @foreach($statuses as $id => $entry)

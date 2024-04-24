@@ -58,6 +58,9 @@
                         {{ trans('cruds.field.fields.display_order') }}
                     </th>
                     <th>
+                        {{ trans('cruds.field.fields.data_source') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.field.fields.status') }}
                     </th>
                     <th>
@@ -128,6 +131,7 @@
 { data: 'channels_transversality', name: 'channels_transversality' },
 { data: 'language_transversality', name: 'language_transversality' },
 { data: 'display_order', name: 'display_order' },
+{ data: 'data_source', name: 'data_source' },
 { data: 'status_name', name: 'status.name' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
