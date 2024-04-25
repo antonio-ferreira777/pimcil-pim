@@ -7,8 +7,11 @@ use App\Http\Requests\MassDestroyFieldRequest;
 use App\Http\Requests\StoreFieldRequest;
 use App\Http\Requests\UpdateFieldRequest;
 use App\Models\Channel;
+use App\Models\Country;
+use App\Models\Entity;
 use App\Models\Field;
 use App\Models\FormBloc;
+use App\Models\Language;
 use App\Models\Status;
 use App\Models\Taxonomy;
 use Gate;
@@ -23,7 +26,7 @@ class FieldsController extends Controller
         abort_if(Gate::denies('field_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Field::with(['form_blocs', 'taxonomy', 'channel', 'status'])->select(sprintf('%s.*', (new Field)->table));
+            $query = Field::with(['form_blocs', 'taxonomies', 'channels', 'languages', 'countries', 'entities', 'status'])->select(sprintf('%s.*', (new Field)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -70,19 +73,60 @@ class FieldsController extends Controller
 
                 return implode(' ', $labels);
             });
-            $table->addColumn('taxonomy_id_parent', function ($row) {
-                return $row->taxonomy ? $row->taxonomy->id_parent : '';
-            });
+            $table->editColumn('taxonomy', function ($row) {
+                $labels = [];
+                foreach ($row->taxonomies as $taxonomy) {
+                    $labels[] = sprintf('<span class="label label-info label-many">%s</span>', $taxonomy->name);
+                }
 
-            $table->addColumn('channel_name', function ($row) {
-                return $row->channel ? $row->channel->name : '';
+                return implode(' ', $labels);
             });
+            $table->editColumn('channels', function ($row) {
+                $labels = [];
+                foreach ($row->channels as $channel) {
+                    $labels[] = sprintf('<span class="label label-info label-many">%s</span>', $channel->name);
+                }
 
+                return implode(' ', $labels);
+            });
+            $table->editColumn('languages', function ($row) {
+                $labels = [];
+                foreach ($row->languages as $language) {
+                    $labels[] = sprintf('<span class="label label-info label-many">%s</span>', $language->name);
+                }
+
+                return implode(' ', $labels);
+            });
+            $table->editColumn('countries', function ($row) {
+                $labels = [];
+                foreach ($row->countries as $country) {
+                    $labels[] = sprintf('<span class="label label-info label-many">%s</span>', $country->name);
+                }
+
+                return implode(' ', $labels);
+            });
+            $table->editColumn('entities', function ($row) {
+                $labels = [];
+                foreach ($row->entities as $entity) {
+                    $labels[] = sprintf('<span class="label label-info label-many">%s</span>', $entity->ref);
+                }
+
+                return implode(' ', $labels);
+            });
+            $table->editColumn('taxonomy_transversality', function ($row) {
+                return '<input type="checkbox" disabled ' . ($row->taxonomy_transversality ? 'checked' : null) . '>';
+            });
             $table->editColumn('channels_transversality', function ($row) {
                 return '<input type="checkbox" disabled ' . ($row->channels_transversality ? 'checked' : null) . '>';
             });
             $table->editColumn('language_transversality', function ($row) {
                 return '<input type="checkbox" disabled ' . ($row->language_transversality ? 'checked' : null) . '>';
+            });
+            $table->editColumn('countries_transversality', function ($row) {
+                return '<input type="checkbox" disabled ' . ($row->countries_transversality ? 'checked' : null) . '>';
+            });
+            $table->editColumn('entities_transversality', function ($row) {
+                return '<input type="checkbox" disabled ' . ($row->entities_transversality ? 'checked' : null) . '>';
             });
             $table->editColumn('display_order', function ($row) {
                 return $row->display_order ? $row->display_order : '';
@@ -94,7 +138,7 @@ class FieldsController extends Controller
                 return $row->status ? $row->status->name : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder', 'nullable', 'form_bloc', 'taxonomy', 'channel', 'channels_transversality', 'language_transversality', 'status']);
+            $table->rawColumns(['actions', 'placeholder', 'nullable', 'form_bloc', 'taxonomy', 'channels', 'languages', 'countries', 'entities', 'taxonomy_transversality', 'channels_transversality', 'language_transversality', 'countries_transversality', 'entities_transversality', 'status']);
 
             return $table->make(true);
         }
@@ -108,19 +152,30 @@ class FieldsController extends Controller
 
         $form_blocs = FormBloc::pluck('name', 'id');
 
-        $taxonomies = Taxonomy::pluck('id_parent', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $taxonomies = Taxonomy::pluck('name', 'id');
 
-        $channels = Channel::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $channels = Channel::pluck('name', 'id');
+
+        $languages = Language::pluck('name', 'id');
+
+        $countries = Country::pluck('name', 'id');
+
+        $entities = Entity::pluck('ref', 'id');
 
         $statuses = Status::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.fields.create', compact('channels', 'form_blocs', 'statuses', 'taxonomies'));
+        return view('admin.fields.create', compact('channels', 'countries', 'entities', 'form_blocs', 'languages', 'statuses', 'taxonomies'));
     }
 
     public function store(StoreFieldRequest $request)
     {
         $field = Field::create($request->all());
         $field->form_blocs()->sync($request->input('form_blocs', []));
+        $field->taxonomies()->sync($request->input('taxonomies', []));
+        $field->channels()->sync($request->input('channels', []));
+        $field->languages()->sync($request->input('languages', []));
+        $field->countries()->sync($request->input('countries', []));
+        $field->entities()->sync($request->input('entities', []));
 
         return redirect()->route('admin.fields.index');
     }
@@ -131,21 +186,32 @@ class FieldsController extends Controller
 
         $form_blocs = FormBloc::pluck('name', 'id');
 
-        $taxonomies = Taxonomy::pluck('id_parent', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $taxonomies = Taxonomy::pluck('name', 'id');
 
-        $channels = Channel::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $channels = Channel::pluck('name', 'id');
+
+        $languages = Language::pluck('name', 'id');
+
+        $countries = Country::pluck('name', 'id');
+
+        $entities = Entity::pluck('ref', 'id');
 
         $statuses = Status::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $field->load('form_blocs', 'taxonomy', 'channel', 'status');
+        $field->load('form_blocs', 'taxonomies', 'channels', 'languages', 'countries', 'entities', 'status');
 
-        return view('admin.fields.edit', compact('channels', 'field', 'form_blocs', 'statuses', 'taxonomies'));
+        return view('admin.fields.edit', compact('channels', 'countries', 'entities', 'field', 'form_blocs', 'languages', 'statuses', 'taxonomies'));
     }
 
     public function update(UpdateFieldRequest $request, Field $field)
     {
         $field->update($request->all());
         $field->form_blocs()->sync($request->input('form_blocs', []));
+        $field->taxonomies()->sync($request->input('taxonomies', []));
+        $field->channels()->sync($request->input('channels', []));
+        $field->languages()->sync($request->input('languages', []));
+        $field->countries()->sync($request->input('countries', []));
+        $field->entities()->sync($request->input('entities', []));
 
         return redirect()->route('admin.fields.index');
     }
@@ -154,7 +220,7 @@ class FieldsController extends Controller
     {
         abort_if(Gate::denies('field_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $field->load('form_blocs', 'taxonomy', 'channel', 'status');
+        $field->load('form_blocs', 'taxonomies', 'channels', 'languages', 'countries', 'entities', 'status');
 
         return view('admin.fields.show', compact('field'));
     }

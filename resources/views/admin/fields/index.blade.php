@@ -46,13 +46,31 @@
                         {{ trans('cruds.field.fields.taxonomy') }}
                     </th>
                     <th>
-                        {{ trans('cruds.field.fields.channel') }}
+                        {{ trans('cruds.field.fields.channels') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.field.fields.languages') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.field.fields.countries') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.field.fields.entities') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.field.fields.taxonomy_transversality') }}
                     </th>
                     <th>
                         {{ trans('cruds.field.fields.channels_transversality') }}
                     </th>
                     <th>
                         {{ trans('cruds.field.fields.language_transversality') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.field.fields.countries_transversality') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.field.fields.entities_transversality') }}
                     </th>
                     <th>
                         {{ trans('cruds.field.fields.display_order') }}
@@ -126,10 +144,16 @@
 { data: 'default', name: 'default' },
 { data: 'nullable', name: 'nullable' },
 { data: 'form_bloc', name: 'form_blocs.name' },
-{ data: 'taxonomy_id_parent', name: 'taxonomy.id_parent' },
-{ data: 'channel_name', name: 'channel.name' },
+{ data: 'taxonomy', name: 'taxonomies.name' },
+{ data: 'channels', name: 'channels.name' },
+{ data: 'languages', name: 'languages.name' },
+{ data: 'countries', name: 'countries.name' },
+{ data: 'entities', name: 'entities.ref' },
+{ data: 'taxonomy_transversality', name: 'taxonomy_transversality' },
 { data: 'channels_transversality', name: 'channels_transversality' },
 { data: 'language_transversality', name: 'language_transversality' },
+{ data: 'countries_transversality', name: 'countries_transversality' },
+{ data: 'entities_transversality', name: 'entities_transversality' },
 { data: 'display_order', name: 'display_order' },
 { data: 'data_source', name: 'data_source' },
 { data: 'status_name', name: 'status.name' },

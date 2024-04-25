@@ -78,15 +78,57 @@
                             {{ trans('cruds.field.fields.taxonomy') }}
                         </th>
                         <td>
-                            {{ $field->taxonomy->id_parent ?? '' }}
+                            @foreach($field->taxonomies as $key => $taxonomy)
+                                <span class="label label-info">{{ $taxonomy->name }}</span>
+                            @endforeach
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.field.fields.channel') }}
+                            {{ trans('cruds.field.fields.channels') }}
                         </th>
                         <td>
-                            {{ $field->channel->name ?? '' }}
+                            @foreach($field->channels as $key => $channels)
+                                <span class="label label-info">{{ $channels->name }}</span>
+                            @endforeach
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.field.fields.languages') }}
+                        </th>
+                        <td>
+                            @foreach($field->languages as $key => $languages)
+                                <span class="label label-info">{{ $languages->name }}</span>
+                            @endforeach
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.field.fields.countries') }}
+                        </th>
+                        <td>
+                            @foreach($field->countries as $key => $countries)
+                                <span class="label label-info">{{ $countries->name }}</span>
+                            @endforeach
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.field.fields.entities') }}
+                        </th>
+                        <td>
+                            @foreach($field->entities as $key => $entities)
+                                <span class="label label-info">{{ $entities->ref }}</span>
+                            @endforeach
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.field.fields.taxonomy_transversality') }}
+                        </th>
+                        <td>
+                            <input type="checkbox" disabled="disabled" {{ $field->taxonomy_transversality ? 'checked' : '' }}>
                         </td>
                     </tr>
                     <tr>
@@ -103,6 +145,22 @@
                         </th>
                         <td>
                             <input type="checkbox" disabled="disabled" {{ $field->language_transversality ? 'checked' : '' }}>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.field.fields.countries_transversality') }}
+                        </th>
+                        <td>
+                            <input type="checkbox" disabled="disabled" {{ $field->countries_transversality ? 'checked' : '' }}>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.field.fields.entities_transversality') }}
+                        </th>
+                        <td>
+                            <input type="checkbox" disabled="disabled" {{ $field->entities_transversality ? 'checked' : '' }}>
                         </td>
                     </tr>
                     <tr>

@@ -75,28 +75,95 @@
                 <span class="help-block">{{ trans('cruds.field.fields.form_bloc_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="taxonomy_id">{{ trans('cruds.field.fields.taxonomy') }}</label>
-                <select class="form-control select2 {{ $errors->has('taxonomy') ? 'is-invalid' : '' }}" name="taxonomy_id" id="taxonomy_id">
-                    @foreach($taxonomies as $id => $entry)
-                        <option value="{{ $id }}" {{ (old('taxonomy_id') ? old('taxonomy_id') : $field->taxonomy->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                <label for="taxonomies">{{ trans('cruds.field.fields.taxonomy') }}</label>
+                <div style="padding-bottom: 4px">
+                    <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
+                    <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
+                </div>
+                <select class="form-control select2 {{ $errors->has('taxonomies') ? 'is-invalid' : '' }}" name="taxonomies[]" id="taxonomies" multiple>
+                    @foreach($taxonomies as $id => $taxonomy)
+                        <option value="{{ $id }}" {{ (in_array($id, old('taxonomies', [])) || $field->taxonomies->contains($id)) ? 'selected' : '' }}>{{ $taxonomy }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('taxonomy'))
-                    <span class="text-danger">{{ $errors->first('taxonomy') }}</span>
+                @if($errors->has('taxonomies'))
+                    <span class="text-danger">{{ $errors->first('taxonomies') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.taxonomy_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="channel_id">{{ trans('cruds.field.fields.channel') }}</label>
-                <select class="form-control select2 {{ $errors->has('channel') ? 'is-invalid' : '' }}" name="channel_id" id="channel_id">
-                    @foreach($channels as $id => $entry)
-                        <option value="{{ $id }}" {{ (old('channel_id') ? old('channel_id') : $field->channel->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                <label for="channels">{{ trans('cruds.field.fields.channels') }}</label>
+                <div style="padding-bottom: 4px">
+                    <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
+                    <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
+                </div>
+                <select class="form-control select2 {{ $errors->has('channels') ? 'is-invalid' : '' }}" name="channels[]" id="channels" multiple>
+                    @foreach($channels as $id => $channel)
+                        <option value="{{ $id }}" {{ (in_array($id, old('channels', [])) || $field->channels->contains($id)) ? 'selected' : '' }}>{{ $channel }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('channel'))
-                    <span class="text-danger">{{ $errors->first('channel') }}</span>
+                @if($errors->has('channels'))
+                    <span class="text-danger">{{ $errors->first('channels') }}</span>
                 @endif
-                <span class="help-block">{{ trans('cruds.field.fields.channel_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.field.fields.channels_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="languages">{{ trans('cruds.field.fields.languages') }}</label>
+                <div style="padding-bottom: 4px">
+                    <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
+                    <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
+                </div>
+                <select class="form-control select2 {{ $errors->has('languages') ? 'is-invalid' : '' }}" name="languages[]" id="languages" multiple>
+                    @foreach($languages as $id => $language)
+                        <option value="{{ $id }}" {{ (in_array($id, old('languages', [])) || $field->languages->contains($id)) ? 'selected' : '' }}>{{ $language }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('languages'))
+                    <span class="text-danger">{{ $errors->first('languages') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.field.fields.languages_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="countries">{{ trans('cruds.field.fields.countries') }}</label>
+                <div style="padding-bottom: 4px">
+                    <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
+                    <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
+                </div>
+                <select class="form-control select2 {{ $errors->has('countries') ? 'is-invalid' : '' }}" name="countries[]" id="countries" multiple>
+                    @foreach($countries as $id => $country)
+                        <option value="{{ $id }}" {{ (in_array($id, old('countries', [])) || $field->countries->contains($id)) ? 'selected' : '' }}>{{ $country }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('countries'))
+                    <span class="text-danger">{{ $errors->first('countries') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.field.fields.countries_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="entities">{{ trans('cruds.field.fields.entities') }}</label>
+                <div style="padding-bottom: 4px">
+                    <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
+                    <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
+                </div>
+                <select class="form-control select2 {{ $errors->has('entities') ? 'is-invalid' : '' }}" name="entities[]" id="entities" multiple>
+                    @foreach($entities as $id => $entity)
+                        <option value="{{ $id }}" {{ (in_array($id, old('entities', [])) || $field->entities->contains($id)) ? 'selected' : '' }}>{{ $entity }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('entities'))
+                    <span class="text-danger">{{ $errors->first('entities') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.field.fields.entities_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <div class="form-check {{ $errors->has('taxonomy_transversality') ? 'is-invalid' : '' }}">
+                    <input type="hidden" name="taxonomy_transversality" value="0">
+                    <input class="form-check-input" type="checkbox" name="taxonomy_transversality" id="taxonomy_transversality" value="1" {{ $field->taxonomy_transversality || old('taxonomy_transversality', 0) === 1 ? 'checked' : '' }}>
+                    <label class="form-check-label" for="taxonomy_transversality">{{ trans('cruds.field.fields.taxonomy_transversality') }}</label>
+                </div>
+                @if($errors->has('taxonomy_transversality'))
+                    <span class="text-danger">{{ $errors->first('taxonomy_transversality') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.field.fields.taxonomy_transversality_helper') }}</span>
             </div>
             <div class="form-group">
                 <div class="form-check {{ $errors->has('channels_transversality') ? 'is-invalid' : '' }}">
@@ -119,6 +186,28 @@
                     <span class="text-danger">{{ $errors->first('language_transversality') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.field.fields.language_transversality_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <div class="form-check {{ $errors->has('countries_transversality') ? 'is-invalid' : '' }}">
+                    <input type="hidden" name="countries_transversality" value="0">
+                    <input class="form-check-input" type="checkbox" name="countries_transversality" id="countries_transversality" value="1" {{ $field->countries_transversality || old('countries_transversality', 0) === 1 ? 'checked' : '' }}>
+                    <label class="form-check-label" for="countries_transversality">{{ trans('cruds.field.fields.countries_transversality') }}</label>
+                </div>
+                @if($errors->has('countries_transversality'))
+                    <span class="text-danger">{{ $errors->first('countries_transversality') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.field.fields.countries_transversality_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <div class="form-check {{ $errors->has('entities_transversality') ? 'is-invalid' : '' }}">
+                    <input type="hidden" name="entities_transversality" value="0">
+                    <input class="form-check-input" type="checkbox" name="entities_transversality" id="entities_transversality" value="1" {{ $field->entities_transversality || old('entities_transversality', 0) === 1 ? 'checked' : '' }}>
+                    <label class="form-check-label" for="entities_transversality">{{ trans('cruds.field.fields.entities_transversality') }}</label>
+                </div>
+                @if($errors->has('entities_transversality'))
+                    <span class="text-danger">{{ $errors->first('entities_transversality') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.field.fields.entities_transversality_helper') }}</span>
             </div>
             <div class="form-group">
                 <label for="display_order">{{ trans('cruds.field.fields.display_order') }}</label>

@@ -36,6 +36,36 @@ class UpdateFieldRequest extends FormRequest
                 'required',
                 'array',
             ],
+            'taxonomies.*' => [
+                'integer',
+            ],
+            'taxonomies' => [
+                'array',
+            ],
+            'channels.*' => [
+                'integer',
+            ],
+            'channels' => [
+                'array',
+            ],
+            'languages.*' => [
+                'integer',
+            ],
+            'languages' => [
+                'array',
+            ],
+            'countries.*' => [
+                'integer',
+            ],
+            'countries' => [
+                'array',
+            ],
+            'entities.*' => [
+                'integer',
+            ],
+            'entities' => [
+                'array',
+            ],
             'display_order' => [
                 'nullable',
                 'integer',
