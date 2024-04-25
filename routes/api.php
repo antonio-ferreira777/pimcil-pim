@@ -42,13 +42,6 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Entities Type
     Route::apiResource('entities-types', 'EntitiesTypeApiController');
 
-    // Crm Customer
-    Route::apiResource('crm-customers', 'CrmCustomerApiController');
-
-    // Crm Document
-    Route::post('crm-documents/media', 'CrmDocumentApiController@storeMedia')->name('crm-documents.storeMedia');
-    Route::apiResource('crm-documents', 'CrmDocumentApiController');
-
     // Variations
     Route::apiResource('variations', 'VariationsApiController');
 
