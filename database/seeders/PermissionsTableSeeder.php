@@ -428,310 +428,246 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 105,
-                'title' => 'basic_c_r_m_access',
-            ],
-            [
-                'id'    => 106,
-                'title' => 'crm_status_create',
-            ],
-            [
-                'id'    => 107,
-                'title' => 'crm_status_edit',
-            ],
-            [
-                'id'    => 108,
-                'title' => 'crm_status_show',
-            ],
-            [
-                'id'    => 109,
-                'title' => 'crm_status_delete',
-            ],
-            [
-                'id'    => 110,
-                'title' => 'crm_status_access',
-            ],
-            [
-                'id'    => 111,
-                'title' => 'crm_customer_create',
-            ],
-            [
-                'id'    => 112,
-                'title' => 'crm_customer_edit',
-            ],
-            [
-                'id'    => 113,
-                'title' => 'crm_customer_show',
-            ],
-            [
-                'id'    => 114,
-                'title' => 'crm_customer_delete',
-            ],
-            [
-                'id'    => 115,
-                'title' => 'crm_customer_access',
-            ],
-            [
-                'id'    => 116,
-                'title' => 'crm_note_create',
-            ],
-            [
-                'id'    => 117,
-                'title' => 'crm_note_edit',
-            ],
-            [
-                'id'    => 118,
-                'title' => 'crm_note_show',
-            ],
-            [
-                'id'    => 119,
-                'title' => 'crm_note_delete',
-            ],
-            [
-                'id'    => 120,
-                'title' => 'crm_note_access',
-            ],
-            [
-                'id'    => 121,
-                'title' => 'crm_document_create',
-            ],
-            [
-                'id'    => 122,
-                'title' => 'crm_document_edit',
-            ],
-            [
-                'id'    => 123,
-                'title' => 'crm_document_show',
-            ],
-            [
-                'id'    => 124,
-                'title' => 'crm_document_delete',
-            ],
-            [
-                'id'    => 125,
-                'title' => 'crm_document_access',
-            ],
-            [
-                'id'    => 126,
                 'title' => 'variation_create',
             ],
             [
-                'id'    => 127,
+                'id'    => 106,
                 'title' => 'variation_edit',
             ],
             [
-                'id'    => 128,
+                'id'    => 107,
                 'title' => 'variation_show',
             ],
             [
-                'id'    => 129,
+                'id'    => 108,
                 'title' => 'variation_delete',
             ],
             [
-                'id'    => 130,
+                'id'    => 109,
                 'title' => 'variation_access',
             ],
             [
-                'id'    => 131,
+                'id'    => 110,
                 'title' => 'entities_versioning_create',
             ],
             [
-                'id'    => 132,
+                'id'    => 111,
                 'title' => 'entities_versioning_edit',
             ],
             [
-                'id'    => 133,
+                'id'    => 112,
                 'title' => 'entities_versioning_show',
             ],
             [
-                'id'    => 134,
+                'id'    => 113,
                 'title' => 'entities_versioning_delete',
             ],
             [
-                'id'    => 135,
+                'id'    => 114,
                 'title' => 'entities_versioning_access',
             ],
             [
-                'id'    => 136,
+                'id'    => 115,
                 'title' => 'country_create',
             ],
             [
-                'id'    => 137,
+                'id'    => 116,
                 'title' => 'country_edit',
             ],
             [
-                'id'    => 138,
+                'id'    => 117,
                 'title' => 'country_show',
             ],
             [
-                'id'    => 139,
+                'id'    => 118,
                 'title' => 'country_delete',
             ],
             [
-                'id'    => 140,
+                'id'    => 119,
                 'title' => 'country_access',
             ],
             [
-                'id'    => 141,
+                'id'    => 120,
                 'title' => 'localization_create',
             ],
             [
-                'id'    => 142,
+                'id'    => 121,
                 'title' => 'localization_edit',
             ],
             [
-                'id'    => 143,
+                'id'    => 122,
                 'title' => 'localization_show',
             ],
             [
-                'id'    => 144,
+                'id'    => 123,
                 'title' => 'localization_delete',
             ],
             [
-                'id'    => 145,
+                'id'    => 124,
                 'title' => 'localization_access',
             ],
             [
-                'id'    => 146,
+                'id'    => 125,
                 'title' => 'reward_create',
             ],
             [
-                'id'    => 147,
+                'id'    => 126,
                 'title' => 'reward_edit',
             ],
             [
-                'id'    => 148,
+                'id'    => 127,
                 'title' => 'reward_show',
             ],
             [
-                'id'    => 149,
+                'id'    => 128,
                 'title' => 'reward_delete',
             ],
             [
-                'id'    => 150,
+                'id'    => 129,
                 'title' => 'reward_access',
             ],
             [
-                'id'    => 151,
+                'id'    => 130,
                 'title' => 'entities_reward_create',
             ],
             [
-                'id'    => 152,
+                'id'    => 131,
                 'title' => 'entities_reward_edit',
             ],
             [
-                'id'    => 153,
+                'id'    => 132,
                 'title' => 'entities_reward_show',
             ],
             [
-                'id'    => 154,
+                'id'    => 133,
                 'title' => 'entities_reward_delete',
             ],
             [
-                'id'    => 155,
+                'id'    => 134,
                 'title' => 'entities_reward_access',
             ],
             [
-                'id'    => 156,
+                'id'    => 135,
                 'title' => 'entities_press_create',
             ],
             [
-                'id'    => 157,
+                'id'    => 136,
                 'title' => 'entities_press_edit',
             ],
             [
-                'id'    => 158,
+                'id'    => 137,
                 'title' => 'entities_press_show',
             ],
             [
-                'id'    => 159,
+                'id'    => 138,
                 'title' => 'entities_press_delete',
             ],
             [
-                'id'    => 160,
+                'id'    => 139,
                 'title' => 'entities_press_access',
             ],
             [
-                'id'    => 161,
+                'id'    => 140,
                 'title' => 'region_create',
             ],
             [
-                'id'    => 162,
+                'id'    => 141,
                 'title' => 'region_edit',
             ],
             [
-                'id'    => 163,
+                'id'    => 142,
                 'title' => 'region_show',
             ],
             [
-                'id'    => 164,
+                'id'    => 143,
                 'title' => 'region_delete',
             ],
             [
-                'id'    => 165,
+                'id'    => 144,
                 'title' => 'region_access',
             ],
             [
-                'id'    => 166,
+                'id'    => 145,
                 'title' => 'winemaker_create',
             ],
             [
-                'id'    => 167,
+                'id'    => 146,
                 'title' => 'winemaker_edit',
             ],
             [
-                'id'    => 168,
+                'id'    => 147,
                 'title' => 'winemaker_show',
             ],
             [
-                'id'    => 169,
+                'id'    => 148,
                 'title' => 'winemaker_delete',
             ],
             [
-                'id'    => 170,
+                'id'    => 149,
                 'title' => 'winemaker_access',
             ],
             [
-                'id'    => 171,
+                'id'    => 150,
                 'title' => 'files_type_create',
             ],
             [
-                'id'    => 172,
+                'id'    => 151,
                 'title' => 'files_type_edit',
             ],
             [
-                'id'    => 173,
+                'id'    => 152,
                 'title' => 'files_type_show',
             ],
             [
-                'id'    => 174,
+                'id'    => 153,
                 'title' => 'files_type_delete',
             ],
             [
-                'id'    => 175,
+                'id'    => 154,
                 'title' => 'files_type_access',
             ],
             [
-                'id'    => 176,
+                'id'    => 155,
                 'title' => 'grape_create',
             ],
             [
-                'id'    => 177,
+                'id'    => 156,
                 'title' => 'grape_edit',
             ],
             [
-                'id'    => 178,
+                'id'    => 157,
                 'title' => 'grape_show',
             ],
             [
-                'id'    => 179,
+                'id'    => 158,
                 'title' => 'grape_delete',
             ],
             [
-                'id'    => 180,
+                'id'    => 159,
                 'title' => 'grape_access',
             ],
             [
-                'id'    => 181,
+                'id'    => 160,
+                'title' => 'producer_create',
+            ],
+            [
+                'id'    => 161,
+                'title' => 'producer_edit',
+            ],
+            [
+                'id'    => 162,
+                'title' => 'producer_show',
+            ],
+            [
+                'id'    => 163,
+                'title' => 'producer_delete',
+            ],
+            [
+                'id'    => 164,
+                'title' => 'producer_access',
+            ],
+            [
+                'id'    => 165,
                 'title' => 'profile_password_edit',
             ],
         ];

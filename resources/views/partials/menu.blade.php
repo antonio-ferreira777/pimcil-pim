@@ -97,6 +97,18 @@
                         </a>
                     </li>
                 @endcan
+                @can('producer_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.producers.index") }}" class="nav-link {{ request()->is("admin/producers") || request()->is("admin/producers/*") ? "active" : "" }}">
+                            <i class="fa-fw nav-icon fas fa-cogs">
+
+                            </i>
+                            <p>
+                                {{ trans('cruds.producer.title') }}
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 @can('winemaker_access')
                     <li class="nav-item">
                         <a href="{{ route("admin.winemakers.index") }}" class="nav-link {{ request()->is("admin/winemakers") || request()->is("admin/winemakers/*") ? "active" : "" }}">
@@ -201,69 +213,6 @@
                                         </i>
                                         <p>
                                             {{ trans('cruds.userAlert.title') }}
-                                        </p>
-                                    </a>
-                                </li>
-                            @endcan
-                        </ul>
-                    </li>
-                @endcan
-                @can('basic_c_r_m_access')
-                    <li class="nav-item has-treeview {{ request()->is("admin/crm-statuses*") ? "menu-open" : "" }} {{ request()->is("admin/crm-customers*") ? "menu-open" : "" }} {{ request()->is("admin/crm-notes*") ? "menu-open" : "" }} {{ request()->is("admin/crm-documents*") ? "menu-open" : "" }}">
-                        <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/crm-statuses*") ? "active" : "" }} {{ request()->is("admin/crm-customers*") ? "active" : "" }} {{ request()->is("admin/crm-notes*") ? "active" : "" }} {{ request()->is("admin/crm-documents*") ? "active" : "" }}" href="#">
-                            <i class="fa-fw nav-icon fas fa-briefcase">
-
-                            </i>
-                            <p>
-                                {{ trans('cruds.basicCRM.title') }}
-                                <i class="right fa fa-fw fa-angle-left nav-icon"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            @can('crm_status_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.crm-statuses.index") }}" class="nav-link {{ request()->is("admin/crm-statuses") || request()->is("admin/crm-statuses/*") ? "active" : "" }}">
-                                        <i class="fa-fw nav-icon fas fa-folder">
-
-                                        </i>
-                                        <p>
-                                            {{ trans('cruds.crmStatus.title') }}
-                                        </p>
-                                    </a>
-                                </li>
-                            @endcan
-                            @can('crm_customer_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.crm-customers.index") }}" class="nav-link {{ request()->is("admin/crm-customers") || request()->is("admin/crm-customers/*") ? "active" : "" }}">
-                                        <i class="fa-fw nav-icon fas fa-user-plus">
-
-                                        </i>
-                                        <p>
-                                            {{ trans('cruds.crmCustomer.title') }}
-                                        </p>
-                                    </a>
-                                </li>
-                            @endcan
-                            @can('crm_note_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.crm-notes.index") }}" class="nav-link {{ request()->is("admin/crm-notes") || request()->is("admin/crm-notes/*") ? "active" : "" }}">
-                                        <i class="fa-fw nav-icon fas fa-sticky-note">
-
-                                        </i>
-                                        <p>
-                                            {{ trans('cruds.crmNote.title') }}
-                                        </p>
-                                    </a>
-                                </li>
-                            @endcan
-                            @can('crm_document_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.crm-documents.index") }}" class="nav-link {{ request()->is("admin/crm-documents") || request()->is("admin/crm-documents/*") ? "active" : "" }}">
-                                        <i class="fa-fw nav-icon fas fa-folder">
-
-                                        </i>
-                                        <p>
-                                            {{ trans('cruds.crmDocument.title') }}
                                         </p>
                                     </a>
                                 </li>

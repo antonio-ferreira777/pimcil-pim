@@ -101,24 +101,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('entities-types/destroy', 'EntitiesTypeController@massDestroy')->name('entities-types.massDestroy');
     Route::resource('entities-types', 'EntitiesTypeController');
 
-    // Crm Status
-    Route::delete('crm-statuses/destroy', 'CrmStatusController@massDestroy')->name('crm-statuses.massDestroy');
-    Route::resource('crm-statuses', 'CrmStatusController');
-
-    // Crm Customer
-    Route::delete('crm-customers/destroy', 'CrmCustomerController@massDestroy')->name('crm-customers.massDestroy');
-    Route::resource('crm-customers', 'CrmCustomerController');
-
-    // Crm Note
-    Route::delete('crm-notes/destroy', 'CrmNoteController@massDestroy')->name('crm-notes.massDestroy');
-    Route::resource('crm-notes', 'CrmNoteController');
-
-    // Crm Document
-    Route::delete('crm-documents/destroy', 'CrmDocumentController@massDestroy')->name('crm-documents.massDestroy');
-    Route::post('crm-documents/media', 'CrmDocumentController@storeMedia')->name('crm-documents.storeMedia');
-    Route::post('crm-documents/ckmedia', 'CrmDocumentController@storeCKEditorImages')->name('crm-documents.storeCKEditorImages');
-    Route::resource('crm-documents', 'CrmDocumentController');
-
     // Variations
     Route::delete('variations/destroy', 'VariationsController@massDestroy')->name('variations.massDestroy');
     Route::resource('variations', 'VariationsController');
@@ -168,6 +150,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('grapes/media', 'GrapesController@storeMedia')->name('grapes.storeMedia');
     Route::post('grapes/ckmedia', 'GrapesController@storeCKEditorImages')->name('grapes.storeCKEditorImages');
     Route::resource('grapes', 'GrapesController');
+
+    // Producers
+    Route::delete('producers/destroy', 'ProducersController@massDestroy')->name('producers.massDestroy');
+    Route::post('producers/media', 'ProducersController@storeMedia')->name('producers.storeMedia');
+    Route::post('producers/ckmedia', 'ProducersController@storeCKEditorImages')->name('producers.storeCKEditorImages');
+    Route::resource('producers', 'ProducersController');
 
     Route::get('global-search', 'GlobalSearchController@search')->name('globalSearch');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
