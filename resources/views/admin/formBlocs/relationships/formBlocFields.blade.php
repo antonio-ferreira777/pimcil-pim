@@ -46,13 +46,31 @@
                                 {{ trans('cruds.field.fields.taxonomy') }}
                             </th>
                             <th>
-                                {{ trans('cruds.field.fields.channel') }}
+                                {{ trans('cruds.field.fields.channels') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.field.fields.languages') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.field.fields.countries') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.field.fields.entities') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.field.fields.taxonomy_transversality') }}
                             </th>
                             <th>
                                 {{ trans('cruds.field.fields.channels_transversality') }}
                             </th>
                             <th>
                                 {{ trans('cruds.field.fields.language_transversality') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.field.fields.countries_transversality') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.field.fields.entities_transversality') }}
                             </th>
                             <th>
                                 {{ trans('cruds.field.fields.display_order') }}
@@ -99,10 +117,33 @@
                                     @endforeach
                                 </td>
                                 <td>
-                                    {{ $field->taxonomy->id_parent ?? '' }}
+                                    @foreach($field->taxonomies as $key => $item)
+                                        <span class="badge badge-info">{{ $item->name }}</span>
+                                    @endforeach
                                 </td>
                                 <td>
-                                    {{ $field->channel->name ?? '' }}
+                                    @foreach($field->channels as $key => $item)
+                                        <span class="badge badge-info">{{ $item->name }}</span>
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach($field->languages as $key => $item)
+                                        <span class="badge badge-info">{{ $item->name }}</span>
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach($field->countries as $key => $item)
+                                        <span class="badge badge-info">{{ $item->name }}</span>
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach($field->entities as $key => $item)
+                                        <span class="badge badge-info">{{ $item->ref }}</span>
+                                    @endforeach
+                                </td>
+                                <td>
+                                    <span style="display:none">{{ $field->taxonomy_transversality ?? '' }}</span>
+                                    <input type="checkbox" disabled="disabled" {{ $field->taxonomy_transversality ? 'checked' : '' }}>
                                 </td>
                                 <td>
                                     <span style="display:none">{{ $field->channels_transversality ?? '' }}</span>
@@ -111,6 +152,14 @@
                                 <td>
                                     <span style="display:none">{{ $field->language_transversality ?? '' }}</span>
                                     <input type="checkbox" disabled="disabled" {{ $field->language_transversality ? 'checked' : '' }}>
+                                </td>
+                                <td>
+                                    <span style="display:none">{{ $field->countries_transversality ?? '' }}</span>
+                                    <input type="checkbox" disabled="disabled" {{ $field->countries_transversality ? 'checked' : '' }}>
+                                </td>
+                                <td>
+                                    <span style="display:none">{{ $field->entities_transversality ?? '' }}</span>
+                                    <input type="checkbox" disabled="disabled" {{ $field->entities_transversality ? 'checked' : '' }}>
                                 </td>
                                 <td>
                                     {{ $field->display_order ?? '' }}

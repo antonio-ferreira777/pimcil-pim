@@ -39,10 +39,11 @@ class Field extends Model
         'type',
         'default',
         'nullable',
-        'taxonomy_id',
-        'channel_id',
+        'taxonomy_transversality',
         'channels_transversality',
         'language_transversality',
+        'countries_transversality',
+        'entities_transversality',
         'display_order',
         'data_source',
         'status_id',
@@ -61,14 +62,29 @@ class Field extends Model
         return $this->belongsToMany(FormBloc::class);
     }
 
-    public function taxonomy()
+    public function taxonomies()
     {
-        return $this->belongsTo(Taxonomy::class, 'taxonomy_id');
+        return $this->belongsToMany(Taxonomy::class);
     }
 
-    public function channel()
+    public function channels()
     {
-        return $this->belongsTo(Channel::class, 'channel_id');
+        return $this->belongsToMany(Channel::class);
+    }
+
+    public function languages()
+    {
+        return $this->belongsToMany(Language::class);
+    }
+
+    public function countries()
+    {
+        return $this->belongsToMany(Country::class);
+    }
+
+    public function entities()
+    {
+        return $this->belongsToMany(Entity::class);
     }
 
     public function status()
